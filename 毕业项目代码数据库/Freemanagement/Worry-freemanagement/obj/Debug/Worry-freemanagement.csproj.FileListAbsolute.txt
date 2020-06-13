@@ -79,7 +79,6 @@ F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanag
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csprojAssemblyReference.cache
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csproj.CoreCompileInputs.cache
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csproj.CopyComplete
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.dll

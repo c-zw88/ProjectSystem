@@ -13,5 +13,9 @@ namespace Worry_freemanagement.Controllers
         {
             return View();
         }
+        public ActionResult Department()
+        {
+            return View();
+        }
     }
 }
