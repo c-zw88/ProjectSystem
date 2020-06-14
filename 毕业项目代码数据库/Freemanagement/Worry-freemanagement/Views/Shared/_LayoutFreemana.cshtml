@@ -4,101 +4,87 @@
 <head>
     <meta charset="utf-8">
     <title>三级导航</title>
-    @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
     <link href="~/Content/left-side-menu.css" rel="stylesheet" />
     <link href="~/fonts/iconfont.css" rel="stylesheet" />
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/jquery.slimscroll.min.js"></script>
     <script src="~/Scripts/left-side-menu.js"></script>
-
 </head>
 <body>
-    <div class="top" style="width: 100%;height: 80px;background-color: #397bc5"></div>
-    <div class="left-side-menu">
-        <div class="lsm-expand-btn">
-            <div class="lsm-mini-btn">
-                <label>
-                    <input type="checkbox" checked="checked">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="30" />
-                        <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
-                        <path class="line--2" d="M0 50h80" />
-                        <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
-                    </svg>
-                </label>
-
-            </div>
-
-            <!-- <input type="text"/>-->
-
+    <div class="top" style="width: 100%;height: 80px;background-color: #28b3f4" >
+        <div class="top1" style="color:white; font-size:36px;font-family:楷体;padding:20px;">
+            <label>无忧人力管理</label>
         </div>
+
+    </div>
+    <div class="left-side-menu" style="position:relative;">
+       
+            <div style="box-shadow:10px #f2f6ce;position:absolute;top:10px;left:230px;width:1480px;height:100%;background-color:white;">
+                @RenderBody()
+            </div>
         <div class="lsm-container">
             <div class="lsm-scroll">
                 <div class="lsm-sidebar">
                     <ul>
+
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>部门管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>地爆天星</span></a></li>
-                                <li><a href="javascript:;"><span>一乐拉面</span></a></li>
+                                <li><a href="/Login/Department "><span>部门信息</span></a></li>
+                                <li><a href="/Login/Add "><span>添加部门</span></a></li>
 
                             </ul>
                         </li>
-                        <li class="lsm-sidebar-item">  
+                        <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon    "></i><span>员工管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>地爆天星</span></a></li>
-                                <li><a href="javascript:;"><span>一乐拉面</span></a></li>
+                                <li><a href=""><span>员工信息</span></a></li>
+                                <li><a href=""><span>管理员工</span></a></li>
                             </ul>
                         </li>
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon   "></i><span>招聘管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>血继限界</span></a></li>
-                                <li><a href="javascript:;"><span>秽土转生</span></a></li>
+                                <li><a href=""><span>招聘信息</span></a></li>
+                                <li><a href=""><span>招聘详情</span></a></li>
                             </ul>
                         </li>
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>培训管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>地爆天星1</span></a></li>
-                                <li><a href="javascript:;"><span>神罗天征1</span></a></li>
-                                <li><a href="javascript:;"><span>八门遁甲1</span></a></li>
+                                <li><a href=""><span>培训列表</span></a></li>
+                                <li><a href=""><span>添加培训</span></a></li>
                             </ul>
                         </li>
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_3"></i><span>工资管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+
                             <ul>
-                                <li><a href="javascript:;"><span>火之国2</span></a></li>
-                                <li><a href="javascript:;"><span>沙之国3</span></a></li>
-                                <li><a href="javascript:;"><span>火影忍者3</span></a></li>
+                                <li><a href=""><span>工资详情</span></a></li>
                             </ul>
                         </li>
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-iconset0308"></i><span>奖罚管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>火之国4</span></a></li>
-                                <li><a href="javascript:;"><span>沙之国4</span></a></li>
-                                <li><a href="javascript:;"><span>火影忍者4</span></a></li>
+                                <li><a href=""><span>奖罚详情</span></a></li>
+                                <li><a href=""><span>考情管理</span></a></li>
                             </ul>
                         </li>
                         <li class="lsm-sidebar-item">
                             <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-chongzhi1"></i><span>退出系统</span><i class="my-icon lsm-sidebar-more"></i></a>
                             <ul>
-                                <li><a href="javascript:;"><span>火之国5</span></a></li>
-                                <li><a href="javascript:;"><span>沙之国5</span></a></li>
-                                <li><a href="javascript:;"><span>火影忍者5</span></a></li>
+                                <li><a href=""><span>火之国5</span></a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>

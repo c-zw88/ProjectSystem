@@ -83,3 +83,8 @@ F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanag
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csproj.CopyComplete
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.dll
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.pdb
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\EntityFramework.dll
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\EntityFramework.SqlServer.dll
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\EntityFramework.xml
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\EntityFramework.SqlServer.xml
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\EntityFramework.resources.dll
