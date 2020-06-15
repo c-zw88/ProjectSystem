@@ -6,24 +6,32 @@
 @using Worry_freemanagement.Models;
 @model List<Departmental>
 <h2></h2>
-<form action="#" method="post">
-    <table class="table-bordered">
-        <tr>
-            <th>部门名称</th>
-            <th>部门简介</th>
-            <th>人数</th>
-            <th>查看详情</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th>@item.DepartmentName</th>
-                <th>@item.DepartmentNun</th>
-                <th>@item.Introduction</th>
+<form action="#" method="post" class="form-horizontal">
+    <div class="form-inline col-lg-9"></div>
+        <div class="form-inline col-lg-3">
+            <label>搜索部门：</label>
+            <input type="text" name="name" class="form-control" />
+            <input type="submit" name="name" value="查询" class="btn btn-default btn-success" />
+        </div>
+        <br />
+
+        <table class="table table-bordered table-hover table-condensed table-striped">
+            <tr class="active">
+                <th>部门名称</th>
+                <th>部门简介</th>
+                <th>人数</th>
                 <th>查看详情</th>
             </tr>
-        }
-    </table>   
-    
+            @foreach (var item in Model)
+            {
+                <tr class="warning">
+                    <td>@item.DepartmentName</td>
+                    <td>@item.DepartmentNun</td>
+                    <td>@item.Introduction</td>
+                    <td><a href="#" class="btn btn-default btn-info">查看详情</a></td>
+                </tr>
+            }
+        </table>
+
 </form>
 

@@ -199,7 +199,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\iconfont.eot" />
     <Content Include="fonts\iconfont.ttf" />
-    <Content Include="fonts\iconfont.woff" />
     <EntityDeploy Include="Models\wory.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>wory.Designer.cs</LastGenOutput>
@@ -207,6 +206,7 @@
     <Content Include="Models\wory.edmx.diagram">
       <DependentUpon>wory.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\iconfont.woff" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
