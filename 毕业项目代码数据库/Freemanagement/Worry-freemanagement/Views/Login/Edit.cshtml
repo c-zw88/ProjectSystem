@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model Departmental
+<h2>修改部门信息</h2>
+<form action="#" method="post">
+    <div style="margin-left:30px;">
+        <div>
+            <label style="font-size:20px;">部门名称：</label>
+            <input type="text" name="name" value="@Model.DepartmentName" class="form-control" />
+        </div>
+        </br>
+        <div>
+            <label style="font-size:20px;">部门简介：</label>
+                <input type="text" name="name" value="@Model.DepartmentNun" class="form-control" />
+</div>
+        </br>
+        <div>
+            <label style="font-size:20px;">部门人数：</label>
+            <input type="text" name="name" value="@Model.Introduction" class="form-control" />
+        </div>
+        </br>
+        <div>
+            <label style="font-size:20px;">基本工资：</label>
+            <input type="text" name="name" value="@Model.Basic" class="form-control" />
+        </div>
+    </div>
+</form>
+

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Departmental">
       <EntityTypeMapping TypeName="Model.Departmental">
         <MappingFragment StoreEntitySet="Departmental">
+          <ScalarProperty Name="Basic" ColumnName="Basic" />
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
           <ScalarProperty Name="DepartmentNun" ColumnName="DepartmentNun" />

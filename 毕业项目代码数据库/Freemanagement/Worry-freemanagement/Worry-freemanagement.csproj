@@ -239,6 +239,8 @@
     <Content Include="Views\Shared\_LayoutFreemana.cshtml" />
     <Content Include="Views\Login\Department.cshtml" />
     <Content Include="Views\Login\Add.cshtml" />
+    <Content Include="Views\Login\Delsit.cshtml" />
+    <Content Include="Views\Login\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

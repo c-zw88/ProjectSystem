@@ -20,6 +20,26 @@ namespace Worry_freemanagement.Controllers
             List<Departmental> list  = db.Departmental.ToList();
             return View(list);
         }
+        /// <summary>
+        /// 查看部门信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Delsit(int id)
+        {
+            Departmental dep = db.Departmental.Find(id);
+            return View(dep);
+        }
+        /// <summary>
+        /// 修改部门信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Edit(int id)
+        {
+            Departmental dep = db.Departmental.Find(id);
+            return View(dep);
+        }
         public ActionResult Add()
         {
             return View();

@@ -6,8 +6,9 @@
     </Key>
     <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DepartmentName" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="DepartmentNun" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentNun" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Introduction" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Basic" Type="numeric" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="punishments">
     <Key>

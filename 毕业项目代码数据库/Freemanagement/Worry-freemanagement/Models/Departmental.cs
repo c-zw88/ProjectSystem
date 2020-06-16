@@ -24,6 +24,7 @@ namespace Worry_freemanagement.Models
         public string DepartmentName { get; set; }
         public string DepartmentNun { get; set; }
         public string Introduction { get; set; }
+        public Nullable<decimal> Basic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stafftable> Stafftable { get; set; }

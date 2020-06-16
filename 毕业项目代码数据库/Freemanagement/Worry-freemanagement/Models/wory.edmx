@@ -11,8 +11,9 @@
           </Key>
           <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DepartmentName" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="DepartmentNun" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DepartmentNun" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Introduction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Basic" Type="numeric" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="punishments">
           <Key>
@@ -165,9 +166,10 @@
           </Key>
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="DepartmentName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DepartmentNun" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartmentNun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Stafftable" Relationship="Self.FK_Stafftable_Departmental" FromRole="Departmental" ToRole="Stafftable" />
+          <Property Name="Basic" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="punishments">
           <Key>
@@ -326,6 +328,7 @@
           <EntitySetMapping Name="Departmental">
             <EntityTypeMapping TypeName="Model.Departmental">
               <MappingFragment StoreEntitySet="Departmental">
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="DepartmentNun" ColumnName="DepartmentNun" />
