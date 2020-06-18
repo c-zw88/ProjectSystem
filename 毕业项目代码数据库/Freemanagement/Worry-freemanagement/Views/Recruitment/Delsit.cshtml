@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Delsit";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model Recruitment
+
+<h2>个人信息详情</h2>
+</br>
+</br>
+<form action="#" method="post" style="margin-left:30px;">
+    <table class="table table-bordered table-hover table-condensed table-striped">
+        <tr class="active">
+            <th><h4>编号：</h4></th>
+            <td><h4>@Model.RecruitmentID</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>姓名：</h4></th>
+            <td><h4>@Model.Name</h4></td>
+        </tr>
+        <tr>
+            <th><h4>电话：</h4></th>
+            <td><h4>@Model.Phone</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>年龄：</h4></th>
+            <td><h4>@Model.Age</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>性别：</h4></th>
+            <td><h4>@Model.Sex</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>籍贯：</h4></th>
+            <td><h4>@Model.Nativeplace</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>学历：</h4></th>
+            <td><h4>@Model.Education</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>应聘部门：</h4></th>
+            <td><h4>@Model.Departmental</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>应聘职位：</h4></th>
+            <td><h4>@Model.Position</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>照片：</h4></th>
+            <td><img src="~/image/@Model.Photos"  style="width:50px;height:50px; border-radius:50%;"></td>
+        </tr>
+    </table>
+    </br>
+    <a href="/Recruitment/Index" class="btn btn-default btn-success">返回</a>
+</form>
+

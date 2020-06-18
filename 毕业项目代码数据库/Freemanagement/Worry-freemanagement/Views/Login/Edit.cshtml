@@ -4,28 +4,34 @@
     Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
 }
 @using Worry_freemanagement.Models;
-@model Departmental
-<h2>修改部门信息</h2>
-<form action="#" method="post">
-    <div style="margin-left:30px;">
+@model Departmental 
+<a href="/Login/Department"><img src="~/image/返回.jpg"style="width:25px;height:25px;"></a>
+<form action="/Login/Edit" method="post"style="margin-left:30px;">
+    <h2>修改部门信息</h2>
+    <input type="hidden" value="@Model.DepartmentID" name="DepartmentID"/>
+    <div style="margin-left:50px;">
         <div>
             <label style="font-size:20px;">部门名称：</label>
-            <input type="text" name="name" value="@Model.DepartmentName" class="form-control" />
+            <input type="text" name="DepartmentName" value="@Model.DepartmentName" class="form-control" />
         </div>
-        </br>
+        <br />
         <div>
             <label style="font-size:20px;">部门简介：</label>
-                <input type="text" name="name" value="@Model.DepartmentNun" class="form-control" />
-</div>
-        </br>
+            <input type="text" name="DepartmentNun" value="@Model.DepartmentNun" class="form-control" />
+        </div>
+        <br />
         <div>
             <label style="font-size:20px;">部门人数：</label>
-            <input type="text" name="name" value="@Model.Introduction" class="form-control" />
+            <input type="text" name="Introduction" value="@Model.Introduction" class="form-control" />
         </div>
-        </br>
+        <br />
         <div>
             <label style="font-size:20px;">基本工资：</label>
-            <input type="text" name="name" value="@Model.Basic" class="form-control" />
+            <input type="text" name="Basic" value="@Model.Basic" class="form-control" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" name="name" value="修改部门" class="btn btn-default btn-success" />
         </div>
     </div>
 </form>

@@ -23,15 +23,17 @@ namespace Worry_freemanagement.Models
     
         public int EmployeeID { get; set; }
         public string Name { get; set; }
-        public string Gender { get; set; }
+        public string Sex { get; set; }
         public string Telephone { get; set; }
-        public Nullable<int> Department { get; set; }
+        public Nullable<int> DepartmentID { get; set; }
         public System.DateTime EntryTime { get; set; }
         public string Photos { get; set; }
         public string Position { get; set; }
         public string Education { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string Nativeplace { get; set; }
+        public int Age { get; set; }
     
         public virtual Departmental Departmental { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

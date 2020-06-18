@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Worry_freemanagement</RootNamespace>
     <AssemblyName>Worry-freemanagement</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -61,11 +63,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -110,6 +109,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -128,43 +128,45 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Departmental.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\punishments.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Recruitment.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stafftable.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trainingform.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wage.cs">
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\wory.Context.cs">
+    <Compile Include="Models\Worry.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wory.Context.tt</DependentUpon>
+      <DependentUpon>Worry.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\wory.cs">
+    <Compile Include="Models\Worry.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wory.tt</DependentUpon>
+      <DependentUpon>Worry.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\wory.Designer.cs">
+    <Compile Include="Models\Worry.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wory.edmx</DependentUpon>
+      <DependentUpon>Worry.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,15 +176,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\iconfont.js" />
-    <Content Include="Models\wory.Context.tt">
+    <Content Include="image\1.jpg" />
+    <Content Include="image\2.jpg" />
+    <Content Include="image\返回.jpg" />
+    <Content Include="Models\Worry.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>wory.Context.cs</LastGenOutput>
-      <DependentUpon>wory.edmx</DependentUpon>
+      <DependentUpon>Worry.edmx</DependentUpon>
+      <LastGenOutput>Worry.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\wory.tt">
+    <Content Include="Models\Worry.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>wory.edmx</DependentUpon>
-      <LastGenOutput>wory.cs</LastGenOutput>
+      <DependentUpon>Worry.edmx</DependentUpon>
+      <LastGenOutput>Worry.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\iconfont.js" />
     <Content Include="Content\left-side-menu.css" />
@@ -199,14 +204,14 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\iconfont.eot" />
     <Content Include="fonts\iconfont.ttf" />
-    <EntityDeploy Include="Models\wory.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>wory.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\wory.edmx.diagram">
-      <DependentUpon>wory.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\iconfont.woff" />
+    <EntityDeploy Include="Models\Worry.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Worry.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Worry.edmx.diagram">
+      <DependentUpon>Worry.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -241,6 +246,11 @@
     <Content Include="Views\Login\Add.cshtml" />
     <Content Include="Views\Login\Delsit.cshtml" />
     <Content Include="Views\Login\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Recruitment\Delsit.cshtml" />
+    <Content Include="Views\Recruitment\Hire.cshtml" />
+    <Content Include="Views\Recruitment\Index.cshtml" />
+    <Content Include="Views\Employee\Delsit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
