@@ -13,10 +13,10 @@ namespace Worry_freemanagement.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WorryEntities1 : DbContext
+    public partial class Entities1 : DbContext
     {
-        public WorryEntities1()
-            : base("name=WorryEntities1")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     

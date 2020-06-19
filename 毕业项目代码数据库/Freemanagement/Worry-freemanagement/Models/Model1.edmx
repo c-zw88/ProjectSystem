@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Departmental">
           <Key>
             <PropertyRef Name="DepartmentID" />
@@ -99,30 +99,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Recruitment_Departmental">
-          <End Role="Departmental" Type="Self.Departmental" Multiplicity="1" />
-          <End Role="Recruitment" Type="Self.Recruitment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Recruitment">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stafftable_Departmental1">
-          <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
-          <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Stafftable">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Trainingform_Trainingform">
           <End Role="Trainingform" Type="Self.Trainingform" Multiplicity="1" />
           <End Role="Trainingform1" Type="Self.Trainingform" Multiplicity="0..1" />
@@ -158,14 +134,6 @@
             <End Role="Stafftable" EntitySet="Stafftable" />
             <End Role="punishments" EntitySet="punishments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Recruitment_Departmental" Association="Self.FK_Recruitment_Departmental">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Recruitment" EntitySet="Recruitment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stafftable_Departmental1" Association="Self.FK_Stafftable_Departmental1">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Stafftable" EntitySet="Stafftable" />
-          </AssociationSet>
           <AssociationSet Name="FK_Trainingform_Trainingform" Association="Self.FK_Trainingform_Trainingform">
             <End Role="Trainingform" EntitySet="Trainingform" />
             <End Role="Trainingform1" EntitySet="Trainingform" />
@@ -175,7 +143,8 @@
             <End Role="Wage" EntitySet="Wage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -188,8 +157,6 @@
           <Property Name="DepartmentNun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Basic" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="Stafftable" Relationship="Self.FK_Stafftable_Departmental" FromRole="Departmental" ToRole="Stafftable" />
-          <NavigationProperty Name="Recruitment" Relationship="Model.FK_Recruitment_Departmental" FromRole="Departmental" ToRole="Recruitment" />
         </EntityType>
         <EntityType Name="punishments">
           <Key>
@@ -218,7 +185,6 @@
           <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Photos" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Departmental" Relationship="Model.FK_Recruitment_Departmental" FromRole="Recruitment" ToRole="Departmental" />
         </EntityType>
         <EntityType Name="Stafftable">
           <Key>
@@ -236,10 +202,9 @@
           <Property Name="UserName" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Departmental" Relationship="Self.FK_Stafftable_Departmental" FromRole="Stafftable" ToRole="Departmental" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
           <NavigationProperty Name="punishments" Relationship="Self.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
           <NavigationProperty Name="Wage" Relationship="Self.FK_Wage_Stafftable" FromRole="Stafftable" ToRole="Wage" />
-          <Property Name="Age" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Trainingform">
           <Key>
@@ -271,18 +236,6 @@
           <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
         </EntityType>
-        <Association Name="FK_Stafftable_Departmental">
-          <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
-          <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Stafftable">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_punishments_Stafftable">
           <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
           <End Role="punishments" Type="Self.punishments" Multiplicity="*" />
@@ -319,17 +272,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WorryEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Departmental" EntityType="Self.Departmental" />
           <EntitySet Name="punishments" EntityType="Self.punishments" />
           <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
           <EntitySet Name="Stafftable" EntityType="Self.Stafftable" />
           <EntitySet Name="Trainingform" EntityType="Self.Trainingform" />
           <EntitySet Name="Wage" EntityType="Self.Wage" />
-          <AssociationSet Name="FK_Stafftable_Departmental" Association="Self.FK_Stafftable_Departmental">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Stafftable" EntitySet="Stafftable" />
-          </AssociationSet>
           <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
             <End Role="Stafftable" EntitySet="Stafftable" />
             <End Role="punishments" EntitySet="punishments" />
@@ -342,29 +291,13 @@
             <End Role="Trainingform" EntitySet="Trainingform" />
             <End Role="Trainingform1" EntitySet="Trainingform" />
           </AssociationSet>
-          <AssociationSet Name="FK_Recruitment_Departmental" Association="Model.FK_Recruitment_Departmental">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Recruitment" EntitySet="Recruitment" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Recruitment_Departmental">
-          <End Type="Model.Departmental" Role="Departmental" Multiplicity="1" />
-          <End Type="Model.Recruitment" Role="Recruitment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Recruitment">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="WorryEntities1">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
           <EntitySetMapping Name="Departmental">
             <EntityTypeMapping TypeName="Model.Departmental">
               <MappingFragment StoreEntitySet="Departmental">
@@ -408,7 +341,6 @@
           <EntitySetMapping Name="Stafftable">
             <EntityTypeMapping TypeName="Model.Stafftable">
               <MappingFragment StoreEntitySet="Stafftable">
-                <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
@@ -421,6 +353,7 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Nativeplace" ColumnName="Nativeplace" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

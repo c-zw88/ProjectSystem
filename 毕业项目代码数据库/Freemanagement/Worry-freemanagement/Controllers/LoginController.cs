@@ -9,7 +9,7 @@ namespace Worry_freemanagement.Controllers
 {
     public class LoginController : Controller
     {
-        WorryEntities1 db = new WorryEntities1();
+        Entities1 db = new Entities1();
         // GET: Login
         public ActionResult Index()
         {

@@ -16,7 +16,7 @@ namespace Worry_freemanagement.Controllers
         /// <returns></returns>
         // GET: Recruitment
 
-        WorryEntities1 db = new WorryEntities1();
+        Entities1 db = new Entities1();
         public ActionResult Index()
         {
             List<Recruitment> list = db.Recruitment.ToList();
@@ -39,10 +39,11 @@ namespace Worry_freemanagement.Controllers
         public ActionResult Hire(int id)
         {
             Recruitment er = db.Recruitment.Find(id);
+
             return View(er);
         }
         [HttpPost]
-        public ActionResult Hire(Stafftable sta,HttpPostedFileBase file)
+        public ActionResult Hire(Stafftable sta,HttpPostedFileBase file,int id)
         {
             
             if (file != null)
@@ -58,11 +59,24 @@ namespace Worry_freemanagement.Controllers
                     sta.Photos = fileName;
                 }
             }
+            sta.EntryTime = System.DateTime.Now;
+            db.Configuration.ValidateOnSaveEnabled = false;
             db.Stafftable.Add(sta);
             db.SaveChanges();
+            db.Configuration.ValidateOnSaveEnabled = true;
             return RedirectToAction("Index", "Employee");
         
         }
+        /// <summary>
+        /// 添加新的应聘者
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Add()
+        {
+            Recruitment er = db.Recruitment.Find(id);
 
+            return View(er);
+        }
     }
 }

@@ -35,7 +35,6 @@ namespace Worry_freemanagement.Models
         public string Nativeplace { get; set; }
         public int Age { get; set; }
     
-        public virtual Departmental Departmental { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<punishments> punishments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

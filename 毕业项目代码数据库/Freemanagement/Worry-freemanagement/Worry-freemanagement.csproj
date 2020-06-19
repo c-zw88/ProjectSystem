@@ -136,37 +136,37 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Departmental.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\punishments.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Recruitment.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stafftable.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trainingform.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wage.cs">
-      <DependentUpon>Worry.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Worry.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Worry.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Worry.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Worry.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Worry.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Worry.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,15 +179,15 @@
     <Content Include="image\1.jpg" />
     <Content Include="image\2.jpg" />
     <Content Include="image\返回.jpg" />
-    <Content Include="Models\Worry.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Worry.edmx</DependentUpon>
-      <LastGenOutput>Worry.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Worry.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Worry.edmx</DependentUpon>
-      <LastGenOutput>Worry.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\iconfont.js" />
     <Content Include="Content\left-side-menu.css" />
@@ -205,12 +205,12 @@
     <Content Include="fonts\iconfont.eot" />
     <Content Include="fonts\iconfont.ttf" />
     <Content Include="fonts\iconfont.woff" />
-    <EntityDeploy Include="Models\Worry.edmx">
+    <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Worry.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Worry.edmx.diagram">
-      <DependentUpon>Worry.edmx</DependentUpon>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -251,6 +251,7 @@
     <Content Include="Views\Recruitment\Hire.cshtml" />
     <Content Include="Views\Recruitment\Index.cshtml" />
     <Content Include="Views\Employee\Delsit.cshtml" />
+    <Content Include="Views\Recruitment\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
