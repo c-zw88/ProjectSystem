@@ -9,6 +9,8 @@
     <Property Name="DepartmentNun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Basic" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Recruitment" Relationship="Model.FK_Recruitment_Departmental" FromRole="Departmental" ToRole="Recruitment" />
+    <NavigationProperty Name="Stafftable" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Departmental" ToRole="Stafftable" />
   </EntityType>
   <EntityType Name="punishments">
     <Key>
@@ -37,6 +39,8 @@
     <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Photos" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
     <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departmental" Relationship="Model.FK_Recruitment_Departmental" FromRole="Recruitment" ToRole="Departmental" />
   </EntityType>
   <EntityType Name="Stafftable">
     <Key>
@@ -57,6 +61,7 @@
     <Property Name="Age" Type="Int32" Nullable="false" />
     <NavigationProperty Name="punishments" Relationship="Self.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
     <NavigationProperty Name="Wage" Relationship="Self.FK_Wage_Stafftable" FromRole="Stafftable" ToRole="Wage" />
+    <NavigationProperty Name="Departmental" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Stafftable" ToRole="Departmental" />
   </EntityType>
   <EntityType Name="Trainingform">
     <Key>
@@ -143,5 +148,37 @@
       <End Role="Trainingform" EntitySet="Trainingform" />
       <End Role="Trainingform1" EntitySet="Trainingform" />
     </AssociationSet>
+    <AssociationSet Name="FK_Recruitment_Departmental" Association="Model.FK_Recruitment_Departmental">
+      <End Role="Departmental" EntitySet="Departmental" />
+      <End Role="Recruitment" EntitySet="Recruitment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stafftable_Departmental1" Association="Model.FK_Stafftable_Departmental1">
+      <End Role="Departmental" EntitySet="Departmental" />
+      <End Role="Stafftable" EntitySet="Stafftable" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Recruitment_Departmental">
+    <End Type="Model.Departmental" Role="Departmental" Multiplicity="1" />
+    <End Type="Model.Recruitment" Role="Recruitment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmental">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Recruitment">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stafftable_Departmental1">
+    <End Type="Model.Departmental" Role="Departmental" Multiplicity="0..1" />
+    <End Type="Model.Stafftable" Role="Stafftable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmental">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Stafftable">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

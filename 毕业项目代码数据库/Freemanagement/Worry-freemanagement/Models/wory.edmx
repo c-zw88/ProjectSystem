@@ -37,11 +37,10 @@
           <Property Name="Age" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Sex" Type="nchar" MaxLength="2" />
           <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
-          <Property Name="Education" Type="nvarchar" MaxLength="5" />
+          <Property Name="Education" Type="nvarchar" MaxLength="10" />
           <Property Name="Position" Type="nvarchar" MaxLength="10" />
-          <Property Name="Photos" Type="nchar" MaxLength="13" />
-          <Property Name="DepartmentID" Type="int" Nullable="false" />
-          <Property Name="Introduction" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Departmental" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Stafftable">
           <Key>
@@ -51,15 +50,14 @@
           <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Sex" Type="nchar" MaxLength="2" Nullable="false" />
           <Property Name="Telephone" Type="nchar" MaxLength="13" Nullable="false" />
-          <Property Name="DepartmentID" Type="int" />
+          <Property Name="Department" Type="int" />
           <Property Name="EntryTime" Type="datetime" Nullable="false" />
           <Property Name="Photos" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Position" Type="nvarchar" MaxLength="10" />
           <Property Name="Education" Type="nvarchar" MaxLength="5" />
-          <Property Name="UserName" Type="nchar" MaxLength="18" />
+          <Property Name="UserName" Type="nchar" MaxLength="10" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
-          <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
-          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Nativeplace" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Trainingform">
           <Key>
@@ -100,19 +98,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Recruitment_Departmental">
-          <End Role="Departmental" Type="Self.Departmental" Multiplicity="1" />
-          <End Role="Recruitment" Type="Self.Recruitment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Recruitment">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stafftable_Departmental1">
+        <Association Name="FK_Stafftable_Departmental">
           <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
           <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +106,7 @@
               <PropertyRef Name="DepartmentID" />
             </Principal>
             <Dependent Role="Stafftable">
-              <PropertyRef Name="DepartmentID" />
+              <PropertyRef Name="Department" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -159,11 +145,7 @@
             <End Role="Stafftable" EntitySet="Stafftable" />
             <End Role="punishments" EntitySet="punishments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Recruitment_Departmental" Association="Self.FK_Recruitment_Departmental">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Recruitment" EntitySet="Recruitment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stafftable_Departmental1" Association="Self.FK_Stafftable_Departmental1">
+          <AssociationSet Name="FK_Stafftable_Departmental" Association="Self.FK_Stafftable_Departmental">
             <End Role="Departmental" EntitySet="Departmental" />
             <End Role="Stafftable" EntitySet="Stafftable" />
           </AssociationSet>
@@ -184,13 +166,12 @@
           <Key>
             <PropertyRef Name="DepartmentID" />
           </Key>
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="DepartmentName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DepartmentNun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Stafftable" Relationship="Self.FK_Stafftable_Departmental" FromRole="Departmental" ToRole="Stafftable" />
           <Property Name="Basic" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="Recruitment" Relationship="Model.FK_Recruitment_Departmental" FromRole="Departmental" ToRole="Recruitment" />
-          <NavigationProperty Name="Stafftable" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Departmental" ToRole="Stafftable" />
         </EntityType>
         <EntityType Name="punishments">
           <Key>
@@ -209,39 +190,36 @@
           <Key>
             <PropertyRef Name="RecruitmentID" />
           </Key>
-          <Property Name="RecruitmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecruitmentID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Education" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Photos" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
-          <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Departmental" Relationship="Model.FK_Recruitment_Departmental" FromRole="Recruitment" ToRole="Departmental" />
+          <Property Name="Photos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departmental" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Stafftable">
           <Key>
             <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Telephone" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="DepartmentID" Type="Int32" />
+          <Property Name="Department" Type="Int32" />
           <Property Name="EntryTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Photos" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Education" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departmental" Relationship="Self.FK_Stafftable_Departmental" FromRole="Stafftable" ToRole="Departmental" />
           <NavigationProperty Name="punishments" Relationship="Self.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
           <NavigationProperty Name="Wage" Relationship="Self.FK_Wage_Stafftable" FromRole="Stafftable" ToRole="Wage" />
-          <NavigationProperty Name="Departmental" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Stafftable" ToRole="Departmental" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Nativeplace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Trainingform">
           <Key>
@@ -273,6 +251,18 @@
           <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
         </EntityType>
+        <Association Name="FK_Stafftable_Departmental">
+          <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
+          <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmental">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Stafftable">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_punishments_Stafftable">
           <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
           <End Role="punishments" Type="Self.punishments" Multiplicity="*" />
@@ -309,13 +299,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Departmental" EntityType="Self.Departmental" />
           <EntitySet Name="punishments" EntityType="Self.punishments" />
           <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
           <EntitySet Name="Stafftable" EntityType="Self.Stafftable" />
           <EntitySet Name="Trainingform" EntityType="Self.Trainingform" />
           <EntitySet Name="Wage" EntityType="Self.Wage" />
+          <AssociationSet Name="FK_Stafftable_Departmental" Association="Self.FK_Stafftable_Departmental">
+            <End Role="Departmental" EntitySet="Departmental" />
+            <End Role="Stafftable" EntitySet="Stafftable" />
+          </AssociationSet>
           <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
             <End Role="Stafftable" EntitySet="Stafftable" />
             <End Role="punishments" EntitySet="punishments" />
@@ -328,53 +322,21 @@
             <End Role="Trainingform" EntitySet="Trainingform" />
             <End Role="Trainingform1" EntitySet="Trainingform" />
           </AssociationSet>
-          <AssociationSet Name="FK_Recruitment_Departmental" Association="Model.FK_Recruitment_Departmental">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Recruitment" EntitySet="Recruitment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stafftable_Departmental1" Association="Model.FK_Stafftable_Departmental1">
-            <End Role="Departmental" EntitySet="Departmental" />
-            <End Role="Stafftable" EntitySet="Stafftable" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Recruitment_Departmental">
-          <End Type="Model.Departmental" Role="Departmental" Multiplicity="1" />
-          <End Type="Model.Recruitment" Role="Recruitment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Recruitment">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stafftable_Departmental1">
-          <End Type="Model.Departmental" Role="Departmental" Multiplicity="0..1" />
-          <End Type="Model.Stafftable" Role="Stafftable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departmental">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="Stafftable">
-              <PropertyRef Name="DepartmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Departmental">
             <EntityTypeMapping TypeName="Model.Departmental">
               <MappingFragment StoreEntitySet="Departmental">
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="DepartmentNun" ColumnName="DepartmentNun" />
                 <ScalarProperty Name="Introduction" ColumnName="Introduction" />
-                <ScalarProperty Name="Basic" ColumnName="Basic" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -394,7 +356,7 @@
           <EntitySetMapping Name="Recruitment">
             <EntityTypeMapping TypeName="Model.Recruitment">
               <MappingFragment StoreEntitySet="Recruitment">
-                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="Departmental" ColumnName="Departmental" />
                 <ScalarProperty Name="RecruitmentID" ColumnName="RecruitmentID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -404,26 +366,24 @@
                 <ScalarProperty Name="Education" ColumnName="Education" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="Photos" ColumnName="Photos" />
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stafftable">
             <EntityTypeMapping TypeName="Model.Stafftable">
               <MappingFragment StoreEntitySet="Stafftable">
+                <ScalarProperty Name="Nativeplace" ColumnName="Nativeplace" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
                 <ScalarProperty Name="Photos" ColumnName="Photos" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="Education" ColumnName="Education" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Nativeplace" ColumnName="Nativeplace" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -24,5 +24,8 @@ namespace Worry_freemanagement.Models
         public string Position { get; set; }
         public string Photos { get; set; }
         public int DepartmentID { get; set; }
+        public string Introduction { get; set; }
+    
+        public virtual Departmental Departmental { get; set; }
     }
 }

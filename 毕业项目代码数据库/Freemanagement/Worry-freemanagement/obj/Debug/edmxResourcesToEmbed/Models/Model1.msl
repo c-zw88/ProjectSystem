@@ -28,6 +28,7 @@
     <EntitySetMapping Name="Recruitment">
       <EntityTypeMapping TypeName="Model.Recruitment">
         <MappingFragment StoreEntitySet="Recruitment">
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
           <ScalarProperty Name="RecruitmentID" ColumnName="RecruitmentID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />

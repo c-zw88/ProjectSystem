@@ -39,5 +39,6 @@ namespace Worry_freemanagement.Models
         public virtual ICollection<punishments> punishments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wage> Wage { get; set; }
+        public virtual Departmental Departmental { get; set; }
     }
 }

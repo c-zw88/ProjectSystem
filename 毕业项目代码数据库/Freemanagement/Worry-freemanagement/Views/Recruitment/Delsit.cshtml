@@ -5,7 +5,9 @@
 }
 @using Worry_freemanagement.Models;
 @model Recruitment
-
+@{ 
+    Departmental de = ViewBag.de;
+}
 <h2>个人信息详情</h2>
 </br>
 </br>
@@ -40,8 +42,8 @@
             <td><h4>@Model.Education</h4></td>
         </tr>
         <tr class="warning">
-            <th><h4>应聘部门：</h4></th>
-            <td><h4>@Model.Departmental</h4></td>
+            <th><h4>应聘部门：</h4></th>          
+            <td><h4>@de.DepartmentName</h4></td>
         </tr>
         <tr class="active">
             <th><h4>应聘职位：</h4></th>

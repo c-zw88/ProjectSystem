@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1825b3435f8a4c81a5a366e6ed5b848c" Name="Diagram1">
+      <Diagram DiagramId="1825b3435f8a4c81a5a366e6ed5b848c" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="Model.Departmental" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.punishments" Width="1.5" PointX="5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Recruitment" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
@@ -14,6 +14,8 @@
         <AssociationConnector Association="Model.FK_punishments_Stafftable" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Wage_Stafftable" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Trainingform_Trainingform" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Recruitment_Departmental" />
+        <AssociationConnector Association="Model.FK_Stafftable_Departmental1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,10 +14,22 @@ namespace Worry_freemanagement.Models
     
     public partial class Departmental
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Departmental()
+        {
+            this.Recruitment = new HashSet<Recruitment>();
+            this.Stafftable = new HashSet<Stafftable>();
+        }
+    
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
         public string DepartmentNun { get; set; }
         public string Introduction { get; set; }
         public Nullable<decimal> Basic { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recruitment> Recruitment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stafftable> Stafftable { get; set; }
     }
 }

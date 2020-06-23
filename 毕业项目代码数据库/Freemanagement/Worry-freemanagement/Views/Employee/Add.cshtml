@@ -3,13 +3,14 @@
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
 }
+
 @using Worry_freemanagement.Models;
 @{
     List<Departmental> de = ViewBag.de;
 }
 @*<script src="~/Scripts/jquery-3.4.1.js"></script>*@
 <script src="~/Scripts/jquery.validate.js"></script>
-<h2>添加招聘人</h2>
+<h2>添加员工</h2>
 <form action="#" method="post" id="xuan">
     <div class="col-lg-6 form-group">
         <label style="font-size:18px;">姓名：</label>
@@ -21,7 +22,7 @@
     </div>
     <div class="col-lg-6 form-group">
         <label style="font-size:18px;">电话：</label>
-        <input type="text" name="Phone" class="form-control" placeholder="请输入电话" />
+        <input type="text" name="Telephone" class="form-control" placeholder="请输入电话" />
     </div>
     <div class="col-lg-6 form-group" style="margin-top:10px;">
         <label style="font-size:18px;">性别：</label>
@@ -42,17 +43,17 @@
         </select>
     </div>
     <div class="col-lg-6 form-group">
-        <label style="font-size:18px;">应聘部门：</label>
+        <label style="font-size:18px;">部门：</label>
         @*<input type="text" name="DepartmentID" class="form-control" />*@
         <select name="DepartmentID" class="form-control">
-            @foreach (var item in de)
-            {
-                <option value="@item.DepartmentID">@item.DepartmentName</option>
-            }
+           @foreach (var item in de)
+           {
+               <option value="@item.DepartmentID">@item.DepartmentName</option>
+           }
         </select>
     </div>
     <div class="col-lg-6 form-group" style="margin-top:-40px;">
-        <label style="font-size:18px;">应聘职位：</label>
+        <label style="font-size:18px;">职位：</label>
         <select name="Position" class="form-control">
             <option value="员工">员工</option>
             <option value="部门经理">部门经理</option>
@@ -63,9 +64,13 @@
         <label style="font-size:18px;">照片：</label>
         <input type="file" name="Photos" class="form-control" />
     </div>
-    <div class="col-lg-6 form-group" style="margin-top:-40px;">
-        <label style="font-size:18px;">简介：</label>
-        <textarea name="Introduction" class="form-control"></textarea>
+    <div class="col-lg-6 form-group"style="margin-top:-20px;">
+        <label style="font-size:18px;">账号：</label>
+        <input type="text" name="UserName" class="form-control" placeholder="请输入籍贯所在" />
+    </div>
+    <div class="col-lg-6 form-group" >
+        <label style="font-size:18px;">密码：</label>
+        <input type="password" name="Password" class="form-control" placeholder="请输入籍贯所在" />
     </div>
     <div class="col-lg-12 form-group">
         <input type="submit" name="name" value="添加" class="btn btn-default btn-success" />
@@ -77,25 +82,27 @@
             rules: {
                 Name: { required: true },//用户名不能为空
                 Age: { required: true },//年龄
-                Phone: { required: true },//电话
+                Telephone: { required: true },//电话
                 Nativeplace: { required: true },//籍贯
                 Photos: { required: true },//照片
-                Introduction: { required: true },//简介
+                UserName: { required: true },//用户名
+                Password: { required: true },//密码
             },
             messages: {
                 Name: { required: "请输入用户名" },
                 Age: { required: "请输入年龄" },
-                Phone: { required: "请输入电话" },
+                Telephone: { required: "请输入电话" },
                 Nativeplace: { required: "请输入籍贯所在" },
                 Photos: { required: "请上传照片" },
-                Introduction: { required: "请输入个人简介" },
+                UserName: { required: "请输入用户名" },
+                Password: { required: "请输入密码" },
             }
         });
     });
 </script>
 <style>
     .error {
-        color:red;
+        color: red;
     }
 </style>
 
