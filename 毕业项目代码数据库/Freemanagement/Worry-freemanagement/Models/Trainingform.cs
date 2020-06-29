@@ -20,6 +20,7 @@ namespace Worry_freemanagement.Models
         public string Location { get; set; }
         public string Reason { get; set; }
         public Nullable<System.DateTime> Datatime { get; set; }
+        public Nullable<System.DateTime> Datatimes { get; set; }
     
         public virtual Trainingform Trainingform1 { get; set; }
         public virtual Trainingform Trainingform2 { get; set; }

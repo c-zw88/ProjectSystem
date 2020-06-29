@@ -64,6 +64,7 @@
     <EntitySetMapping Name="Trainingform">
       <EntityTypeMapping TypeName="Model.Trainingform">
         <MappingFragment StoreEntitySet="Trainingform">
+          <ScalarProperty Name="Datatimes" ColumnName="Datatimes" />
           <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
           <ScalarProperty Name="Nametraining" ColumnName="Nametraining" />
           <ScalarProperty Name="Personnel" ColumnName="Personnel" />

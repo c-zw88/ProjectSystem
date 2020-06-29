@@ -132,6 +132,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\punishmentsController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +258,10 @@
     <Content Include="Views\Employee\Add.cshtml" />
     <Content Include="Views\Employee\Login.cshtml" />
     <Content Include="Views\Training\Index.cshtml" />
+    <Content Include="Views\Training\Delsit.cshtml" />
+    <Content Include="Views\Training\Add.cshtml" />
+    <Content Include="Views\Training\alter.cshtml" />
+    <Content Include="Views\punishments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

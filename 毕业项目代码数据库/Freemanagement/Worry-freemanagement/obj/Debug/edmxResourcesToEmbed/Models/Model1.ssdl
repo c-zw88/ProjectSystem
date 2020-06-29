@@ -28,7 +28,7 @@
     </Key>
     <Property Name="RecruitmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="Phone" Type="nchar" MaxLength="13" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" Nullable="false" />
     <Property Name="Age" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Sex" Type="nchar" MaxLength="2" />
     <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
@@ -36,7 +36,7 @@
     <Property Name="Position" Type="nvarchar" MaxLength="10" />
     <Property Name="Photos" Type="nchar" MaxLength="13" />
     <Property Name="DepartmentID" Type="int" Nullable="false" />
-    <Property Name="Introduction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Introduction" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Stafftable">
     <Key>
@@ -45,6 +45,7 @@
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Sex" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="Telephone" Type="nchar" MaxLength="13" Nullable="false" />
     <Property Name="DepartmentID" Type="int" />
     <Property Name="EntryTime" Type="datetime" Nullable="false" />
@@ -54,18 +55,18 @@
     <Property Name="UserName" Type="nchar" MaxLength="18" />
     <Property Name="Password" Type="varchar" MaxLength="20" />
     <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
-    <Property Name="Age" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Trainingform">
     <Key>
       <PropertyRef Name="TrainingID" />
     </Key>
-    <Property Name="TrainingID" Type="int" Nullable="false" />
+    <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nametraining" Type="nvarchar" MaxLength="50" />
     <Property Name="Personnel" Type="nchar" MaxLength="10" />
     <Property Name="Location" Type="nvarchar" MaxLength="50" />
     <Property Name="Reason" Type="nvarchar" MaxLength="50" />
     <Property Name="Datatime" Type="datetime" />
+    <Property Name="Datatimes" Type="datetime" />
   </EntityType>
   <EntityType Name="Wage">
     <Key>
@@ -92,30 +93,6 @@
       </Principal>
       <Dependent Role="punishments">
         <PropertyRef Name="EmployeeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Recruitment_Departmental">
-    <End Role="Departmental" Type="Self.Departmental" Multiplicity="1" />
-    <End Role="Recruitment" Type="Self.Recruitment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Departmental">
-        <PropertyRef Name="DepartmentID" />
-      </Principal>
-      <Dependent Role="Recruitment">
-        <PropertyRef Name="DepartmentID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Stafftable_Departmental1">
-    <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
-    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Departmental">
-        <PropertyRef Name="DepartmentID" />
-      </Principal>
-      <Dependent Role="Stafftable">
-        <PropertyRef Name="DepartmentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -153,14 +130,6 @@
     <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
       <End Role="Stafftable" EntitySet="Stafftable" />
       <End Role="punishments" EntitySet="punishments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Recruitment_Departmental" Association="Self.FK_Recruitment_Departmental">
-      <End Role="Departmental" EntitySet="Departmental" />
-      <End Role="Recruitment" EntitySet="Recruitment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Stafftable_Departmental1" Association="Self.FK_Stafftable_Departmental1">
-      <End Role="Departmental" EntitySet="Departmental" />
-      <End Role="Stafftable" EntitySet="Stafftable" />
     </AssociationSet>
     <AssociationSet Name="FK_Trainingform_Trainingform" Association="Self.FK_Trainingform_Trainingform">
       <End Role="Trainingform" EntitySet="Trainingform" />

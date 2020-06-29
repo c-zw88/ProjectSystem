@@ -16,10 +16,21 @@ namespace Worry_freemanagement.Controllers
         /// 查看所有员工
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string Name = "",int pageIndex = 1, int pageCount = 4)
         {
 
-            List<Stafftable> sta = db.Stafftable.ToList();
+            //List<Stafftable> sta = db.Stafftable.ToList();
+            //总行数
+            int totalCount = db.Stafftable.OrderBy(p => p.EmployeeID).Where(p => p.Name.Contains(Name) || Name == "").Count();
+            //总页数
+            double totalPage = Math.Ceiling((double)totalCount / pageCount);
+            //获得用户集合 , 分页查询Skip（）跳过指定数量的集合 Take() 从过滤后返回的集合中再从第一行取出指定的行数
+            List<Stafftable> sta = db.Stafftable.OrderBy(p => p.EmployeeID).Where(p => p.Name.Contains(Name) || Name == "").ToList().Skip((pageIndex - 1) * pageCount).Take(pageCount).ToList();
+            ViewBag.pageIndex = pageIndex;
+            ViewBag.pageCount = pageCount;
+            ViewBag.totalCount = totalCount;
+            ViewBag.totalPage = totalPage;
+            ViewBag.Name = Name;  
             return View(sta);
         }
         /// <summary>
@@ -69,12 +80,10 @@ namespace Worry_freemanagement.Controllers
                     }
                 }
                 //通过注册时间填写的账号去数据库中查找账号是否存在
-                Stafftable st = db.Stafftable.SingleOrDefault(p => p.Name == stafftable.Name);
+                Stafftable st = db.Stafftable.Where(p => p.Name == stafftable.Name).FirstOrDefault();
                 if (st == null)
                 {
                     stafftable.EntryTime = System.DateTime.Now;
-                    stafftable.Password = "123456";
-                    stafftable.UserName = "aa";
                     db.Stafftable.Add(stafftable);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -82,8 +91,10 @@ namespace Worry_freemanagement.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "该账号已存在");
-                    return View();
+                    //ModelState.AddModelError("", "该账号已存在");
+                    var de = db.Departmental.ToList();
+                    ViewBag.de = de;
+                    return Content("<script >alert('该员工已存在');window.open('" + Url.Content("/Employee/Index") + "', '_self')</script >", "text/html");
                 }
             }
             else

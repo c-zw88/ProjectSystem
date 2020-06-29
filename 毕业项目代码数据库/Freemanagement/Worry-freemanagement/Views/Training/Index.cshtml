@@ -3,6 +3,43 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
 }
+@using Worry_freemanagement.Models;
+@model List<Trainingform>
+@{
+    var cont = 1;
+}
 
 <h2>员工培训详情</h2>
 
+<form action="#" method="post">
+    <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
+        <tr class="active">
+            <th style="text-align:center;">编号</th>
+            <th style="text-align:center;">培训名称</th>
+            <th style="text-align:center;">培训地点</th>
+            <th style="text-align:center;">参与人员</th>
+            <th style="text-align:center;">培训宗旨</th>
+            <th style="text-align:center;">培训开始时间</th>
+            <th style="text-align:center;">培训结束时间</th>
+            <th style="text-align:center;">操作</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr class="warning">
+        <td>@(cont++)</td>
+        <td>@item.Nametraining</td>
+        <td>@item.Personnel</td>
+        <td>@item.Location</td>
+        <td>@item.Reason</td>
+        <td>@item.Datatime</td>
+        <td>@item.Datatimes</td>
+        <td>
+            <a href="/Training/Delsit?id=@item.TrainingID" class="btn btn-default btn-primary">查看详情</a>
+            <a href="/Training/alter?id=@item.TrainingID" class="btn btn-default btn-info">修改</a>
+        </td>
+    </tr>
+        }
+    </table>
+
+
+</form>
