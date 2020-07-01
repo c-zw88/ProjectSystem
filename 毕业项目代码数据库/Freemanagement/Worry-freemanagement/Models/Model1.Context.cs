@@ -26,10 +26,12 @@ namespace Worry_freemanagement.Models
         }
     
         public virtual DbSet<Departmental> Departmental { get; set; }
-        public virtual DbSet<punishments> punishments { get; set; }
         public virtual DbSet<Recruitment> Recruitment { get; set; }
         public virtual DbSet<Stafftable> Stafftable { get; set; }
         public virtual DbSet<Trainingform> Trainingform { get; set; }
         public virtual DbSet<Wage> Wage { get; set; }
+        public virtual DbSet<Admini> Admini { get; set; }
+        public virtual DbSet<punishments> punishments { get; set; }
+        public virtual DbSet<notice> notice { get; set; }
     }
 }

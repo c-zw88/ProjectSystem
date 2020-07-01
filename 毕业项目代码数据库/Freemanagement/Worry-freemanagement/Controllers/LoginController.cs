@@ -15,10 +15,21 @@ namespace Worry_freemanagement.Controllers
         {
             return View();
         }
-        public ActionResult Department()
+        public ActionResult Department(string Name = "", int pageIndex = 1, int pageCount = 4)
         {
-            List<Departmental> list = db.Departmental.ToList();
-            return View(list);
+            //List<Departmental> list = db.Departmental.ToList();
+            //return View(list);
+            int totalCount = db.Departmental.OrderBy(p => p.DepartmentID).Where(p => p.DepartmentName.Contains(Name) || Name == "").Count();
+            //总页数
+            double totalPage = Math.Ceiling((double)totalCount / pageCount);
+            //获得用户集合 , 分页查询Skip（）跳过指定数量的集合 Take() 从过滤后返回的集合中再从第一行取出指定的行数
+            List<Departmental> tad = db.Departmental.OrderBy(p => p.DepartmentID).Where(p => p.DepartmentName.Contains(Name) || Name == "").ToList().Skip((pageIndex - 1) * pageCount).Take(pageCount).ToList();
+            ViewBag.pageIndex = pageIndex;
+            ViewBag.pageCount = pageCount;
+            ViewBag.totalCount = totalCount;
+            ViewBag.totalPage = totalPage;
+            ViewBag.Name = Name;
+            return View(tad);
         }
         /// <summary>
         /// 查看部门信息

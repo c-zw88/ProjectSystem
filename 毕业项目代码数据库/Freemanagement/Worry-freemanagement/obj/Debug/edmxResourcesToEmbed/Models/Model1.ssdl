@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admini">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="13" Nullable="false" />
+  </EntityType>
   <EntityType Name="Departmental">
     <Key>
       <PropertyRef Name="DepartmentID" />
@@ -10,17 +18,25 @@
     <Property Name="Introduction" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Basic" Type="numeric" Precision="18" Scale="2" />
   </EntityType>
+  <EntityType Name="notice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datatime" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="punishments">
     <Key>
       <PropertyRef Name="EventsID" />
     </Key>
-    <Property Name="EventsID" Type="int" Nullable="false" />
+    <Property Name="EventsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="10" />
-    <Property Name="Department" Type="int" />
     <Property Name="Reason" Type="nvarchar" MaxLength="50" />
     <Property Name="Datatime" Type="datetime" />
-    <Property Name="Amount" Type="int" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Recruitment">
     <Key>
@@ -121,7 +137,9 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Admini" EntityType="Self.Admini" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departmental" EntityType="Self.Departmental" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notice" EntityType="Self.notice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="punishments" EntityType="Self.punishments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recruitment" EntityType="Self.Recruitment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stafftable" EntityType="Self.Stafftable" Schema="dbo" store:Type="Tables" />

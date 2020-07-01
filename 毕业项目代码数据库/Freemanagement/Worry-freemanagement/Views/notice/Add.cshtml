@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<h2>发布公告</h2>
+
+<form action="#" method="post">
+    <textarea id="txt"></textarea>
+    <input type="submit" name="name" value="添加" class="btn btn-default btn-primary" />
+</form>
+
+<script type="text/javascript">
+    CKEDITOR.replace('txt');
+</script>

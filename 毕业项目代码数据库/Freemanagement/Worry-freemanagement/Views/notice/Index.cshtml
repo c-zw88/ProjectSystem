@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<h2>发布公司公告</h2>
+
+<form action="/notice/Index" method="post" style="margin-top:30px;">
+    <label class="form-inline col-lg-1" style="font-size:18px;">标题内容：</label>
+    <input type="text" name="name" class="form-control" placeholder="请输入公告标题" />
+    <br />
+    <textarea id="txt" name="Content"></textarea>
+    <br />
+    <input type="submit" name="name" value="添加" class="btn btn-default btn-primary " />
+</form>
+
+<script type="text/javascript">
+    CKEDITOR.replace('txt');
+</script>

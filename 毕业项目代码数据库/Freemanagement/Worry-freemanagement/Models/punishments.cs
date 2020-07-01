@@ -17,10 +17,9 @@ namespace Worry_freemanagement.Models
         public int EventsID { get; set; }
         public int EmployeeID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Department { get; set; }
         public string Reason { get; set; }
         public Nullable<System.DateTime> Datatime { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public string Amount { get; set; }
     
         public virtual Stafftable Stafftable { get; set; }
     }

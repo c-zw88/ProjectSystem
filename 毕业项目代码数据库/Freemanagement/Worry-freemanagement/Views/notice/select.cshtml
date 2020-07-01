@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "select";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model List<notice>
+    @{ 
+        var count = 1;
+    }
+
+<h2>公告</h2>
+<form action="/notice/select" method="post">
+    <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
+        <tr class="active">
+            <th style="text-align:center;">编号</th>
+            <th style="text-align:center;">标题</th>
+            <th style="text-align:center;">发布时间</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="active">
+                <th style="text-align:center;">@(count++)</th>
+                <th style="text-align:center;">@item.name</th>
+                <th style="text-align:center;">@item.datatime</th>
+                <td>
+                    <a href="/notice/delete?id=@item.id" class="btn btn-default btn-info">删除</a>
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+

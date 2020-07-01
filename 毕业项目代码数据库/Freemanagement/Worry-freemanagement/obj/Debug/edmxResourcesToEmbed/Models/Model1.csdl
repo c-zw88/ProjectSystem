@@ -12,19 +12,6 @@
     <NavigationProperty Name="Recruitment" Relationship="Model.FK_Recruitment_Departmental" FromRole="Departmental" ToRole="Recruitment" />
     <NavigationProperty Name="Stafftable" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Departmental" ToRole="Stafftable" />
   </EntityType>
-  <EntityType Name="punishments">
-    <Key>
-      <PropertyRef Name="EventsID" />
-    </Key>
-    <Property Name="EventsID" Type="Int32" Nullable="false" />
-    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Department" Type="Int32" />
-    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Datatime" Type="DateTime" Precision="3" />
-    <Property Name="Amount" Type="Int32" />
-    <NavigationProperty Name="Stafftable" Relationship="Self.FK_punishments_Stafftable" FromRole="punishments" ToRole="Stafftable" />
-  </EntityType>
   <EntityType Name="Recruitment">
     <Key>
       <PropertyRef Name="RecruitmentID" />
@@ -59,9 +46,9 @@
     <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Age" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="punishments" Relationship="Self.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
     <NavigationProperty Name="Wage" Relationship="Self.FK_Wage_Stafftable" FromRole="Stafftable" ToRole="Wage" />
     <NavigationProperty Name="Departmental" Relationship="Model.FK_Stafftable_Departmental1" FromRole="Stafftable" ToRole="Departmental" />
+    <NavigationProperty Name="punishments" Relationship="Model.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
   </EntityType>
   <EntityType Name="Trainingform">
     <Key>
@@ -94,18 +81,6 @@
     <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
   </EntityType>
-  <Association Name="FK_punishments_Stafftable">
-    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
-    <End Role="punishments" Type="Self.punishments" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stafftable">
-        <PropertyRef Name="EmployeeID" />
-      </Principal>
-      <Dependent Role="punishments">
-        <PropertyRef Name="EmployeeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Wage_Stafftable">
     <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
     <End Role="Wage" Type="Self.Wage" Multiplicity="*" />
@@ -132,15 +107,10 @@
   </Association>
   <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Departmental" EntityType="Self.Departmental" />
-    <EntitySet Name="punishments" EntityType="Self.punishments" />
     <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
     <EntitySet Name="Stafftable" EntityType="Self.Stafftable" />
     <EntitySet Name="Trainingform" EntityType="Self.Trainingform" />
     <EntitySet Name="Wage" EntityType="Self.Wage" />
-    <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
-      <End Role="Stafftable" EntitySet="Stafftable" />
-      <End Role="punishments" EntitySet="punishments" />
-    </AssociationSet>
     <AssociationSet Name="FK_Wage_Stafftable" Association="Self.FK_Wage_Stafftable">
       <End Role="Stafftable" EntitySet="Stafftable" />
       <End Role="Wage" EntitySet="Wage" />
@@ -157,6 +127,13 @@
       <End Role="Departmental" EntitySet="Departmental" />
       <End Role="Stafftable" EntitySet="Stafftable" />
     </AssociationSet>
+    <EntitySet Name="Admini" EntityType="Model.Admini" />
+    <EntitySet Name="punishments" EntityType="Model.punishments" />
+    <AssociationSet Name="FK_punishments_Stafftable" Association="Model.FK_punishments_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="punishments" EntitySet="punishments" />
+    </AssociationSet>
+    <EntitySet Name="notice" EntityType="Model.notice" />
   </EntityContainer>
   <Association Name="FK_Recruitment_Departmental">
     <End Type="Model.Departmental" Role="Departmental" Multiplicity="1" />
@@ -182,4 +159,45 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Admini">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="punishments">
+    <Key>
+      <PropertyRef Name="EventsID" />
+    </Key>
+    <Property Name="EventsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Datatime" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Stafftable" Relationship="Model.FK_punishments_Stafftable" FromRole="punishments" ToRole="Stafftable" />
+  </EntityType>
+  <Association Name="FK_punishments_Stafftable">
+    <End Type="Model.Stafftable" Role="Stafftable" Multiplicity="1" />
+    <End Type="Model.punishments" Role="punishments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="punishments">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="notice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datatime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

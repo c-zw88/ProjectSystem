@@ -16,10 +16,20 @@ namespace Worry_freemanagement.Controllers
         /// 员工培训列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string Name = "", int pageIndex = 1, int pageCount = 4)
         {
-            List<Trainingform> list = db.Trainingform.ToList();
-            return View(list);
+            //List<Trainingform> list = db.Trainingform.ToList();
+            //return View(list);
+            int totalCount = db.Trainingform.OrderBy(p => p.TrainingID).Count();
+            //总页数
+            double totalPage = Math.Ceiling((double)totalCount / pageCount);
+            //获得用户集合 , 分页查询Skip（）跳过指定数量的集合 Take() 从过滤后返回的集合中再从第一行取出指定的行数
+            List<Trainingform> tra = db.Trainingform.OrderBy(p => p.TrainingID).ToList().Skip((pageIndex - 1) * pageCount).Take(pageCount).ToList();
+            ViewBag.pageIndex = pageIndex;
+            ViewBag.pageCount = pageCount;
+            ViewBag.totalCount = totalCount;
+            ViewBag.totalPage = totalPage;
+            return View(tra);
         }
         /// <summary>
         /// 查看培训详情
@@ -37,7 +47,6 @@ namespace Worry_freemanagement.Controllers
         /// <returns></returns>
         public ActionResult Add()
         {
-
             return View();
         }
         [HttpPost]

@@ -12,19 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="punishments">
-      <EntityTypeMapping TypeName="Model.punishments">
-        <MappingFragment StoreEntitySet="punishments">
-          <ScalarProperty Name="EventsID" ColumnName="EventsID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Department" ColumnName="Department" />
-          <ScalarProperty Name="Reason" ColumnName="Reason" />
-          <ScalarProperty Name="Datatime" ColumnName="Datatime" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Recruitment">
       <EntityTypeMapping TypeName="Model.Recruitment">
         <MappingFragment StoreEntitySet="Recruitment">
@@ -88,6 +75,37 @@
           <ScalarProperty Name="Insurance" ColumnName="Insurance" />
           <ScalarProperty Name="taxation" ColumnName="taxation" />
           <ScalarProperty Name="Real" ColumnName="Real" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admini">
+      <EntityTypeMapping TypeName="Model.Admini">
+        <MappingFragment StoreEntitySet="Admini">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="punishments">
+      <EntityTypeMapping TypeName="Model.punishments">
+        <MappingFragment StoreEntitySet="punishments">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Datatime" ColumnName="Datatime" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EventsID" ColumnName="EventsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notice">
+      <EntityTypeMapping TypeName="Model.notice">
+        <MappingFragment StoreEntitySet="notice">
+          <ScalarProperty Name="datatime" ColumnName="datatime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
