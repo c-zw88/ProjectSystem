@@ -44,22 +44,28 @@ namespace Worry_freemanagement.Controllers
         /// <returns></returns>
         public ActionResult Add()
         {
+            var de = db.Stafftable.ToList();
+            ViewBag.de = de;
             return View();
         }
         [HttpPost]
         public ActionResult Add(punishments pun)
         {
-            if (ModelState.IsValid)
-            {
-                db.punishments.Find(pun);
-                db.SaveChanges();
-                return RedirectToAction( "Index","punishments");
-            }
-            else
-            {
-                return View();
-            }
+            var Employee = db.Stafftable.Where(p => p.Name == pun.Name).FirstOrDefault();
+            pun.Datatime = System.DateTime.Now;
+            pun.EmployeeID = Employee.EmployeeID;
+            db.punishments.Add(pun);
+            db.SaveChanges();
+            return RedirectToAction( "Index","punishments");
            
+        }
+        /// <summary>
+        /// 修改奖罚信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult alter()
+        {
+            return  View();
         }
     }
 }

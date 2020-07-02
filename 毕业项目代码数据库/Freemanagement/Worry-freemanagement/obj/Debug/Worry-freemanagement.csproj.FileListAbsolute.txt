@@ -271,4 +271,3 @@ C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Wor
 C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.dll
 C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.pdb
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
-F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csprojAssemblyReference.cache

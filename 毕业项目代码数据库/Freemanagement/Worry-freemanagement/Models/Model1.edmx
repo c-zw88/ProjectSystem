@@ -100,9 +100,7 @@
           <Property Name="Basicwage" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Overtime" Type="nchar" MaxLength="10" />
           <Property Name="Gongz" Type="nchar" MaxLength="10" />
-          <Property Name="Absenteeism" Type="nchar" MaxLength="10" />
           <Property Name="Insurance" Type="nchar" MaxLength="10" />
-          <Property Name="taxation" Type="nchar" MaxLength="10" />
           <Property Name="Real" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_punishments_Stafftable">
@@ -242,9 +240,7 @@
           <Property Name="Basicwage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Overtime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Gongz" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Absenteeism" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Insurance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="taxation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
         </EntityType>
@@ -443,9 +439,7 @@
                 <ScalarProperty Name="Basicwage" ColumnName="Basicwage" />
                 <ScalarProperty Name="Overtime" ColumnName="Overtime" />
                 <ScalarProperty Name="Gongz" ColumnName="Gongz" />
-                <ScalarProperty Name="Absenteeism" ColumnName="Absenteeism" />
                 <ScalarProperty Name="Insurance" ColumnName="Insurance" />
-                <ScalarProperty Name="taxation" ColumnName="taxation" />
                 <ScalarProperty Name="Real" ColumnName="Real" />
               </MappingFragment>
             </EntityTypeMapping>

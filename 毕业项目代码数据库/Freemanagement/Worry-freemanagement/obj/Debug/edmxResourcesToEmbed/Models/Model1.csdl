@@ -75,9 +75,7 @@
     <Property Name="Basicwage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Overtime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Gongz" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Absenteeism" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Insurance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="taxation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
   </EntityType>

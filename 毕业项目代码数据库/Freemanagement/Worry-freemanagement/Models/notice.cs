@@ -11,16 +11,12 @@ namespace Worry_freemanagement.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
-
+    
     public partial class notice
     {
         public int id { get; set; }
-        [AllowHtml]
         public string name { get; set; }
-        [AllowHtml]
         public string Content { get; set; }
-        [AllowHtml]
         public System.DateTime datatime { get; set; }
     }
 }

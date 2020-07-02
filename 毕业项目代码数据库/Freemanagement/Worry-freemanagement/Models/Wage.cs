@@ -21,9 +21,7 @@ namespace Worry_freemanagement.Models
         public string Basicwage { get; set; }
         public string Overtime { get; set; }
         public string Gongz { get; set; }
-        public string Absenteeism { get; set; }
         public string Insurance { get; set; }
-        public string taxation { get; set; }
         public string Real { get; set; }
     
         public virtual Stafftable Stafftable { get; set; }

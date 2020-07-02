@@ -71,9 +71,7 @@
           <ScalarProperty Name="Basicwage" ColumnName="Basicwage" />
           <ScalarProperty Name="Overtime" ColumnName="Overtime" />
           <ScalarProperty Name="Gongz" ColumnName="Gongz" />
-          <ScalarProperty Name="Absenteeism" ColumnName="Absenteeism" />
           <ScalarProperty Name="Insurance" ColumnName="Insurance" />
-          <ScalarProperty Name="taxation" ColumnName="taxation" />
           <ScalarProperty Name="Real" ColumnName="Real" />
         </MappingFragment>
       </EntityTypeMapping>

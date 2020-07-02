@@ -15,6 +15,13 @@ namespace Worry_freemanagement.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 查看所有部门
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         public ActionResult Department(string Name = "", int pageIndex = 1, int pageCount = 4)
         {
             //List<Departmental> list = db.Departmental.ToList();

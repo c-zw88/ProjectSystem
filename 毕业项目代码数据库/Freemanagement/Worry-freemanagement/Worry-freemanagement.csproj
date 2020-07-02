@@ -136,6 +136,7 @@
     <Compile Include="Controllers\punishmentsController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\WagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -624,6 +625,9 @@
     <Content Include="Views\punishments\Add.cshtml" />
     <Content Include="Views\notice\Content.cshtml" />
     <Content Include="Views\notice\select.cshtml" />
+    <Content Include="Views\punishments\alter.cshtml" />
+    <Content Include="Views\Wages\Index.cshtml" />
+    <Content Include="Views\Wages\AddWage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

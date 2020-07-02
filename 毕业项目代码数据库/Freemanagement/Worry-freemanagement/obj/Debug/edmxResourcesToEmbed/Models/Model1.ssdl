@@ -95,9 +95,7 @@
     <Property Name="Basicwage" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Overtime" Type="nchar" MaxLength="10" />
     <Property Name="Gongz" Type="nchar" MaxLength="10" />
-    <Property Name="Absenteeism" Type="nchar" MaxLength="10" />
     <Property Name="Insurance" Type="nchar" MaxLength="10" />
-    <Property Name="taxation" Type="nchar" MaxLength="10" />
     <Property Name="Real" Type="nchar" MaxLength="10" />
   </EntityType>
   <Association Name="FK_punishments_Stafftable">
