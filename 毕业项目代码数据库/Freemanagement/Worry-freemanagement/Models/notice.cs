@@ -18,5 +18,6 @@ namespace Worry_freemanagement.Models
         public string name { get; set; }
         public string Content { get; set; }
         public System.DateTime datatime { get; set; }
+        public string photo { get; set; }
     }
 }

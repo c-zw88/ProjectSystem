@@ -74,7 +74,7 @@ namespace Worry_freemanagement.Controllers
                     if (fileName.EndsWith("jpg") || fileName.EndsWith("png") || fileName.EndsWith("jpeg") || fileName.EndsWith("gif"))
                     {
                         //3.保存图片到项目文件夹当中
-                        file.SaveAs(Server.MapPath("~/images" + fileName));
+                        file.SaveAs(Server.MapPath("~/image" + fileName));
                         //4.将图片文件名，绑定到该用户的photo字段中
                         stafftable.Photos = fileName;
                     }

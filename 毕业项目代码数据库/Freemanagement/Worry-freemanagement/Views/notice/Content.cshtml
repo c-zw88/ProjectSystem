@@ -3,17 +3,32 @@
     ViewBag.Title = "Content";
     Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
 }
+@using Worry_freemanagement.Models;
+@model notice
 
 <h2>公告内容</h2>
-<textarea name="News_content" id="content2" style="display:none">
-      @Model.News_content
-</textarea>
-<div id="div1">
+<div >
+    <div style="margin-top:30px;margin:0px auto;width:600px;height:600px;">
+        <div style="text-align:center;">
+            <label style="font-size:20px;">@Model.name</label>
+        </div>
+        <div style="margin-top:10px; margin-left:400px;">
+            <label>@Model.datatime</label>
+        </div>
 
+        <textarea name="Content" id="content2" style="display:none">
+              @Model.Content
+        </textarea>
+        <div id="cai" style="font-size:18px;margin-top:30px;">
+        </div>
+    </div>
+    <div style="margin-top:40px;">
+        <a href="/notice/select" class="btn btn-default btn-primary">返回</a>
+    </div>
 </div>
 @section scripts{
     <script type="text/javascript">
         //CKEDITOR.replace('News_content');
-        $("#div1").html($("#content2").text());
+        $("#cai").html($("#content2").text());
     </script>
 }

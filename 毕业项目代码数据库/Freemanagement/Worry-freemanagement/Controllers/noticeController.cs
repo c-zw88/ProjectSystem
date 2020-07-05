@@ -15,14 +15,16 @@ namespace Worry_freemanagement.Controllers
         {
             return View();
         }
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Index(notice not)
         {
             if (ModelState.IsValid)
             {
-                db.punishments.Find(not);
+                not.datatime = System.DateTime.Now;
+                db.notice.Add(not);
                 db.SaveChanges();
-                return RedirectToAction("Index", "punishments");
+                return RedirectToAction("select", "notice");
             }
             else
             {
@@ -42,9 +44,10 @@ namespace Worry_freemanagement.Controllers
         /// 显示公告内容
         /// </summary>
         /// <returns></returns>
-        public ActionResult Content()
+        public ActionResult Content(int id)
         {
-            return View();
+            notice not = db.notice.Find(id);
+            return View(not);
         }
     }
 }

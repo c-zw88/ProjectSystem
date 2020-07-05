@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function (config) {
 	config.shiftEnterMode = CKEDITOR.ENTER_P; //清除默认的p标签
 
 	config.font_names = '宋体 / 宋体; 黑体 / 黑体; 仿宋 / 仿宋_GB2312; 楷体 / 楷体_GB2312; 隶书 / 隶书; 幼圆 / 幼圆; 微软雅黑 / 微软雅黑;' + config.font_names;
-	config.uiColor = '#0494df';//主题颜色
+	config.uiColor = '#d1edfa';//主题颜色
 	config.language = 'zh-cn';//中文
 	//工具栏是否可以被收缩
 	config.toolbarCanCollapse = true;

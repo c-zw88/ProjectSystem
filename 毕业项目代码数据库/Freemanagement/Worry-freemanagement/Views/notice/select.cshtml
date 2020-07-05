@@ -16,12 +16,13 @@
             <th style="text-align:center;">编号</th>
             <th style="text-align:center;">标题</th>
             <th style="text-align:center;">发布时间</th>
+            <th style="text-align:center;">操作</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr class="active">
                 <th style="text-align:center;">@(count++)</th>
-                <th style="text-align:center;">@item.name</th>
+                <th style="text-align:center;"><a href="/notice/Content?id=@item.id">@item.name</a></th>
                 <th style="text-align:center;">@item.datatime</th>
                 <td>
                     <a href="/notice/delete?id=@item.id" class="btn btn-default btn-info">删除</a>

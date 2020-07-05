@@ -11,9 +11,34 @@ namespace Worry_freemanagement.Controllers
     {
         Entities1 db = new Entities1();
         // GET: Login
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
+
+        }
+        [HttpPost]
+        public ActionResult Index(string Name, string password)
+        {
+            var user = db.Admini.Where(u => u.Name == Name && u.Password == password).SingleOrDefault();
+            //存在登录的用户信息储存在session中
+            if (user != null)
+            {
+                //将Hashet储存，用户对应菜单信息，原因，hashet
+                Session["user"] = user;
+                //定义hashest
+                HashSet<Admini> menusList = new HashSet<Admini>();
+                Session["menusList"] = menusList;
+                return RedirectToAction("Department", "Login");
+            }
+            else
+            {
+                return Content("<script>alert('账号或密码错误！');location.go(-1)</script>");
+            }
+
         }
         /// <summary>
         /// 查看所有部门

@@ -31,6 +31,7 @@
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="datatime" Type="datetime" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="punishments">
           <Key>
@@ -362,6 +363,7 @@
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="datatime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -468,6 +470,7 @@
           <EntitySetMapping Name="notice">
             <EntityTypeMapping TypeName="Model.notice">
               <MappingFragment StoreEntitySet="notice">
+                <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="datatime" ColumnName="datatime" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="name" ColumnName="name" />

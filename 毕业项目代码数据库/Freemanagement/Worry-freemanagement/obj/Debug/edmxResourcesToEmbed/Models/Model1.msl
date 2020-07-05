@@ -100,6 +100,7 @@
     <EntitySetMapping Name="notice">
       <EntityTypeMapping TypeName="Model.notice">
         <MappingFragment StoreEntitySet="notice">
+          <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="datatime" ColumnName="datatime" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="name" ColumnName="name" />
