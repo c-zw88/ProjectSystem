@@ -724,6 +724,7 @@
     <Content Include="Views\HomePage\select.cshtml" />
     <Content Include="Views\HomePage\Content.cshtml" />
     <Content Include="Views\Shared\_LayoutPersonal.cshtml" />
+    <Content Include="Views\Wages\selelct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

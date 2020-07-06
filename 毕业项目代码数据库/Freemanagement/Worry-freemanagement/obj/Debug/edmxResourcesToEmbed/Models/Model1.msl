@@ -64,6 +64,7 @@
     <EntitySetMapping Name="Wage">
       <EntityTypeMapping TypeName="Model.Wage">
         <MappingFragment StoreEntitySet="Wage">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="Name" ColumnName="Name" />

@@ -23,6 +23,7 @@ namespace Worry_freemanagement.Models
         public string Gongz { get; set; }
         public string Insurance { get; set; }
         public string Real { get; set; }
+        public int DepartmentID { get; set; }
     
         public virtual Stafftable Stafftable { get; set; }
     }

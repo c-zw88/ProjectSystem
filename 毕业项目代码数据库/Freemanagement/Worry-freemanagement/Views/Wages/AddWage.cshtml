@@ -3,26 +3,48 @@
     ViewBag.Title = "AddWage";
     Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
 }
+@using Worry_freemanagement.Models;
+@model Stafftable
+@{ 
+    var add = ViewBag.add;
+}
 
-<h2>录入员工工资</h2>
-<form action="/" method="post">
-    <div>
-        <label>查询员工信息</label>
-        <input type="text" name="name" value="" />
+<h2>录入员工工资</h2> 
+
+<form action="/Wages/AddWage" method="post">
+    <div class="form-inline" style="margin-top:20px;">
+        <label style="font-size:18px;">员工编号:</label>
+        <input style="background-color:white;" type="text" name="name" value="@Model.EmployeeID" class="form-control" readonly />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label style="font-size:18px;">员工姓名:</label>
+        <input style="background-color:white;" type="text" name="name" value="@Model.Name" class="form-control" readonly />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br />
+        <label style="font-size:18px;">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
+        <input style="background-color:white;" type="text" name="name" value="@Model.Departmental.DepartmentName" class="form-control" readonly />&nbsp; &nbsp; &nbsp;
+        <label style="font-size:18px;">基础工资:</label>
+        <input style="background-color:white;" type="text" name="name" value="@Model.Departmental.Basic" class="form-control" readonly />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <label style="font-size:18px;">职位:</label>
+        <input style="background-color:white;" type="text" name="name" value="@Model.Position" class="form-control" readonly />
     </div>
 
-    <div>
-        <label>员工编号:</label>
-        <input type="text" name="name" value="" />
-        <label>部门:</label>
-        <input type="text" name="name" value="" />
-        <label>基础工资</label>
-        <input type="text" name="name" value="" />
-    </div>
-
-    <div>
-        <label>添加员工工资</label>
-        <input type="text" name="name" value="" />
+    <div class="form-inline col-lg-12" style="margin-top:30px;">
+        <div class="form-inline col-lg-12" style="margin-top:10px;">
+            <label style="font-size:18px;">月份：</label>
+            <input type="datetime-local" name="name" value="" class="form-control" />
+        </div>
+        <div class="form-inline col-lg-12" style="margin-top:10px;">
+            <label style="font-size:18px;">加班补贴：</label>
+            <input type="text" name="name" value="" class="form-control" />
+        </div>
+        <div class="form-inline col-lg-12" style="margin-top:10px;">
+            <label style="font-size:18px;">按月奖金：</label>
+            <input type="text" name="name" value="500" class="form-control" />
+        </div>
+        <div class="form-inline col-lg-12" style="margin-top:10px;">
+            <label style="font-size:18px;">考勤工资：</label>
+            <input type="text" name="name" value="" class="form-control" />
+        </div>
+        <input type="submit" name="name" value="添加员工工资" class="btn btn-warning btn-success" style="margin-top:10px;" />
     </div>
 </form>
+
 

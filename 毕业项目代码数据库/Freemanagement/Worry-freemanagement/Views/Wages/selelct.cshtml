@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "selelct";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+
+@using Worry_freemanagement.Models;
+@{ 
+    Wage we = ViewBag.we;
+}
+<h2>个人信息详情</h2>
+</br>
+</br>
+<form action="#" method="post" style="margin-left:30px;">
+    <table class="table table-bordered table-hover table-condensed table-striped">
+        <tr class="active">
+            <th><h4>员工编号：</h4></th>
+            <td><h4>@we.EmployeeID</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>员工姓名：</h4></th>
+            <td><h4>@we.Name</h4></td>
+        </tr>
+        <tr>
+            <th><h4>所在部门：</h4></th>
+            <td><h4>@we.DepartmentID</h4></td>
+        </tr>
+        <tr>
+            <th><h4>工资发放日期：</h4></th>
+            <td><h4>@we.Month</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>基本工资：</h4></th>
+            <td><h4>@we.Basicwage</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>奖金：</h4></th>
+            <td><h4>@we.Overtime</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>考勤工资：</h4></th>
+            <td><h4>@we.Gongz</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>保险：</h4></th>
+            <td><h4>@we.Insurance</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>总工资：</h4></th>
+            <td><h4>@we.Real</h4></td>
+        </tr>
+    </table>
+    </br>
+    <a href="/Employee/Index" class="btn btn-default btn-success">返回</a>
+</form>
+

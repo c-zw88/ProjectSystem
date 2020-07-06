@@ -92,6 +92,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
     <Property Name="Month" Type="datetime" Nullable="false" />
     <Property Name="Basicwage" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Overtime" Type="nchar" MaxLength="10" />

@@ -78,6 +78,7 @@
     <Property Name="Insurance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_Wage_Stafftable">
     <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
