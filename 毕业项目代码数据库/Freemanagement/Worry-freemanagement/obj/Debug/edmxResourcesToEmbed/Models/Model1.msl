@@ -61,25 +61,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Wage">
-      <EntityTypeMapping TypeName="Model.Wage">
-        <MappingFragment StoreEntitySet="Wage">
-          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Month" ColumnName="Month" />
-          <ScalarProperty Name="Basicwage" ColumnName="Basicwage" />
-          <ScalarProperty Name="Overtime" ColumnName="Overtime" />
-          <ScalarProperty Name="Gongz" ColumnName="Gongz" />
-          <ScalarProperty Name="Insurance" ColumnName="Insurance" />
-          <ScalarProperty Name="Real" ColumnName="Real" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Admini">
       <EntityTypeMapping TypeName="Model.Admini">
         <MappingFragment StoreEntitySet="Admini">
+          <ScalarProperty Name="UserNaem" ColumnName="UserNaem" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -106,6 +91,33 @@
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wage">
+      <EntityTypeMapping TypeName="Model.Wage">
+        <MappingFragment StoreEntitySet="Wage">
+          <ScalarProperty Name="Real" ColumnName="Real" />
+          <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+          <ScalarProperty Name="Gongz" ColumnName="Gongz" />
+          <ScalarProperty Name="Overtime" ColumnName="Overtime" />
+          <ScalarProperty Name="Basicwage" ColumnName="Basicwage" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clockin">
+      <EntityTypeMapping TypeName="Model.Clockin">
+        <MappingFragment StoreEntitySet="Clockin">
+          <ScalarProperty Name="Gooffwork" ColumnName="Gooffwork" />
+          <ScalarProperty Name="Gotowork" ColumnName="Gotowork" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Clockinid" ColumnName="Clockinid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

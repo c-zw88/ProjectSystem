@@ -12,11 +12,14 @@ namespace Worry_freemanagement.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Admini
+    public partial class Clockin
     {
-        public int Id { get; set; }
+        public int Clockinid { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
-        public string UserNaem { get; set; }
+        public Nullable<System.DateTime> Gotowork { get; set; }
+        public Nullable<System.DateTime> Gooffwork { get; set; }
+    
+        public virtual Stafftable Stafftable { get; set; }
     }
 }

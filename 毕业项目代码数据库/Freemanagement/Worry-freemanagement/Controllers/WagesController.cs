@@ -71,11 +71,13 @@ namespace Worry_freemanagement.Controllers
             Stafftable ste = db.Stafftable.Find(id);
             return View(ste);
         }
-        //[HttpPost]
-        //public ActionResult AddWage(int EmployeeID)
-        //{
-        //    var add = db.
-        //    return View(ste);
-        //}
+        [HttpPost]
+        public ActionResult AddWage(Wage wa,string Basicwage,string Gongz, string Overtime, string Insurance)
+        {
+            wa.Real =decimal.Parse(Basicwage) + decimal.Parse(Gongz) + decimal.Parse(Overtime) + decimal.Parse(Insurance);
+            db.Wage.Add(wa);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Wages");
+        }
     }
 }

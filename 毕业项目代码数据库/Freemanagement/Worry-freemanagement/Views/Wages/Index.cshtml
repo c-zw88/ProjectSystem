@@ -36,16 +36,17 @@
         </tr>
         @foreach (var item in Model)
         {
-            <tr class="warning">
-                <td>@(cont++)</td>
-                <td>@item.EmployeeID</td>
-                <td>@item.Name</td>
-                <td>@item.Month</td>
-                <td>@item.Real</td>
-                <td>
-                    <a href="/Wages/selelct?id=@item.ID" class="btn btn-default btn-primary">查看详情</a>
-                </td>
-            </tr>
+    <tr class="warning">
+        <td>@(cont++)</td>
+        <td>@item.EmployeeID</td>
+        <td>@item.Name</td>
+        <td>@item.Month</td>
+        <td>@(item.Real=item.Basicwage+item.Gongz+item.Overtime+item.Insurance)</td>
+        @*<td>@item.Real</td>*@
+        <td>
+            <a href="/Wages/selelct?id=@item.ID" class="btn btn-default btn-primary">查看详情</a>
+        </td>
+    </tr>
         }
     </table>
 </form>

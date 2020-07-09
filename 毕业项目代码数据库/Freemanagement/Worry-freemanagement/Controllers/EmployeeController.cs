@@ -51,6 +51,21 @@ namespace Worry_freemanagement.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Login(string name, string password)
+        {
+            var sta = db.Stafftable.Where(p => p.UserName == name && p.Password == password).SingleOrDefault();
+            if (sta!= null)
+            {
+                Session["user"] = sta;
+                //定义hashest
+                return RedirectToAction("Personal", "HomePage");
+            }
+            else
+            {
+                return Content("<script>alert('账号或密码错误！');location.go(-1)</script>");
+            }
+        }
         /// <summary>
         /// 添加员工
         /// </summary>
@@ -80,6 +95,7 @@ namespace Worry_freemanagement.Controllers
                     }
                 }
                 //通过注册时间填写的账号去数据库中查找账号是否存在
+                
                 Stafftable st = db.Stafftable.Where(p => p.Name == stafftable.Name).FirstOrDefault();
                 if (st == null)
                 {

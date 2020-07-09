@@ -271,7 +271,6 @@ C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Wor
 C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.dll
 C:\Users\Administrator\Desktop\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.pdb
 F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
-F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csprojAssemblyReference.cache
 F:\浏览器下载\Freemanagement\Worry-freemanagement\bin\Worry-freemanagement.dll.config
 F:\浏览器下载\Freemanagement\Worry-freemanagement\bin\Worry-freemanagement.dll
 F:\浏览器下载\Freemanagement\Worry-freemanagement\bin\Worry-freemanagement.pdb
@@ -364,3 +363,4 @@ F:\浏览器下载\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanag
 F:\浏览器下载\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.dll
 F:\浏览器下载\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.pdb
 F:\浏览器下载\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csprojAssemblyReference.cache
+F:\毕业项目文档\毕业项目代码数据库\Freemanagement\Worry-freemanagement\obj\Debug\Worry-freemanagement.csprojAssemblyReference.cache

@@ -65,7 +65,7 @@ namespace Worry_freemanagement.Controllers
         /// <returns></returns>
         public ActionResult alter()
         {
-            return  View();
+            return View();
         }
     }
 }

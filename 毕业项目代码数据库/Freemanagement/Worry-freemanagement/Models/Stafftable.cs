@@ -17,8 +17,9 @@ namespace Worry_freemanagement.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stafftable()
         {
-            this.Wage = new HashSet<Wage>();
             this.punishments = new HashSet<punishments>();
+            this.Wage = new HashSet<Wage>();
+            this.Clockin = new HashSet<Clockin>();
         }
     
         public int EmployeeID { get; set; }
@@ -35,10 +36,12 @@ namespace Worry_freemanagement.Models
         public string Nativeplace { get; set; }
         public int Age { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wage> Wage { get; set; }
         public virtual Departmental Departmental { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<punishments> punishments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wage> Wage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clockin> Clockin { get; set; }
     }
 }

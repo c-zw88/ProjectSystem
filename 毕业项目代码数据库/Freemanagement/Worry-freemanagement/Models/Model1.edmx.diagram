@@ -9,8 +9,6 @@
         <EntityTypeShape EntityType="Model.Recruitment" Width="1.5" PointX="2.875" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Stafftable" Width="1.5" PointX="2.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Trainingform" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Wage" Width="1.5" PointX="5" PointY="4.375" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_Wage_Stafftable" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Trainingform_Trainingform" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Recruitment_Departmental" />
         <AssociationConnector Association="Model.FK_Stafftable_Departmental1" />
@@ -18,6 +16,10 @@
         <EntityTypeShape EntityType="Model.punishments" Width="1.5" PointX="5" PointY="1.375" />
         <AssociationConnector Association="Model.FK_punishments_Stafftable" />
         <EntityTypeShape EntityType="Model.notice" Width="1.5" PointX="0.625" PointY="5.625" />
+        <EntityTypeShape EntityType="Model.Wage" Width="1.5" PointX="5.625" PointY="5.375" />
+        <AssociationConnector Association="Model.FK_Wage_Stafftable" />
+        <EntityTypeShape EntityType="Model.Clockin" Width="1.5" PointX="0.625" PointY="8.25" />
+        <AssociationConnector Association="Model.FK_Clockin_Stafftable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

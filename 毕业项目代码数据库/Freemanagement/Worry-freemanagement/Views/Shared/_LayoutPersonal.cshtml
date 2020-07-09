@@ -1,13 +1,93 @@
 ﻿<!DOCTYPE html>
-
+@using Worry_freemanagement.Models
+@{
+    Stafftable sta = Session["user"] as Stafftable;
+}
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <title>无忧管理系统</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-color: #b9d9e5;
+        }
+
+        .age {
+            margin-top: 150px;
+            background-color: white;
+        }
+
+            .age ul {
+                width: 110%;
+                height: 80px;
+                font-size: 24px;
+                list-style: none;
+                margin: auto;
+                background-color: bisque;
+                line-height: 80px;
+                margin-left: -10px;
+            }
+
+                .age ul:hover {
+                    background-color: #2e81f5;
+                }
+
+                .age ul a:hover {
+                    color: white;
+                }
+    </style>
 </head>
 <body>
     <div>
-        @RenderBody()
+        <div style="margin:0px auto; width:280px;height:140px">
+            <img src="~/image/图标.png" style="text-align: center; width: 280px; height: 140px" />
+        </div>
     </div>
+    <div style="
+        border-radius:10px;
+        width: 1600px;
+        height: 800px;
+        border: #ffffff solid 2px;
+        box-shadow:5px 5px 5px 5px #d7f7fc;
+        margin: 0px auto;">
+        <div style="float:right; height:100%; background-color:white;" class="col-lg-10">
+            @RenderBody()
+        </div>
+        <div style="height:100%; background-color:bisque;" class="col-lg-2">
+            <div class="age">
+                <ul>
+                    <li><a href="/HomePage/Personal">首页</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/HomePage/Personalce">个人中心</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/HomePage/Wages">薪资查询</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/HomePage/Punate">奖罚查询</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/HomePage/Clockins">考勤</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/HomePage/Index">返回首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+        </footer>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
 </body>
 </html>

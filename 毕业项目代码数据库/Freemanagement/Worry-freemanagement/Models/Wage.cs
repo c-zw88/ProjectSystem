@@ -17,13 +17,13 @@ namespace Worry_freemanagement.Models
         public int ID { get; set; }
         public int EmployeeID { get; set; }
         public string Name { get; set; }
-        public System.DateTime Month { get; set; }
-        public string Basicwage { get; set; }
-        public string Overtime { get; set; }
-        public string Gongz { get; set; }
-        public string Insurance { get; set; }
-        public string Real { get; set; }
         public int DepartmentID { get; set; }
+        public System.DateTime Month { get; set; }
+        public decimal Basicwage { get; set; }
+        public Nullable<decimal> Overtime { get; set; }
+        public Nullable<decimal> Gongz { get; set; }
+        public Nullable<decimal> Insurance { get; set; }
+        public Nullable<decimal> Real { get; set; }
     
         public virtual Stafftable Stafftable { get; set; }
     }

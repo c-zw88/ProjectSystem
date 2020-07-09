@@ -144,6 +144,9 @@
     <Compile Include="Models\Admini.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Clockin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Departmental.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -573,6 +576,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -725,6 +731,14 @@
     <Content Include="Views\HomePage\Content.cshtml" />
     <Content Include="Views\Shared\_LayoutPersonal.cshtml" />
     <Content Include="Views\Wages\selelct.cshtml" />
+    <Content Include="Views\HomePage\Personal.cshtml" />
+    <Content Include="Views\Login\Sta.cshtml" />
+    <Content Include="Views\Login\Amite.cshtml" />
+    <Content Include="Views\HomePage\Personalcenter.cshtml" />
+    <Content Include="Views\HomePage\Personalce.cshtml" />
+    <Content Include="Views\HomePage\Wages.cshtml" />
+    <Content Include="Views\HomePage\Punate.cshtml" />
+    <Content Include="Views\HomePage\Clockins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

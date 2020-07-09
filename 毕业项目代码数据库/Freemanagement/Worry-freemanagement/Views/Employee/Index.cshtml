@@ -39,12 +39,12 @@
                 <td>@item.Name</td>
                 <td>@item.Sex</td>
                 <td>@item.Telephone</td>
-                <td>@item.DepartmentID</td>
+                <td>@item.Departmental.DepartmentName</td>
                 <td>@item.Position</td>
                 <td>@item.Education</td>
                 <td>
                     <a href="/Employee/Delsit?id=@item.EmployeeID" class="btn btn-default btn-primary">查看详情</a>
-                    <a href="/Employee/Edit?id=@item.EmployeeID" class="btn btn-default btn-info">修改信息</a>
+                    @*<a href="/Employee/Edit?id=@item.EmployeeID" class="btn btn-default btn-info">修改信息</a>*@
                     <a href="/Wages/AddWage?id=@item.EmployeeID" class="btn btn-default btn-info">添加工资</a>
                 </td>
             </tr>

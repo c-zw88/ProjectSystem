@@ -10,6 +10,25 @@ namespace Worry_freemanagement.Controllers
     public class LoginController : Controller
     {
         Entities1 db = new Entities1();
+        public ActionResult Sta()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 管理员信息显示
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Amite()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Amite(Admini ad)
+        {
+            db.Entry(ad).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("sta");
+        }
         // GET: Login
         /// <summary>
         /// 登录
@@ -18,25 +37,22 @@ namespace Worry_freemanagement.Controllers
         public ActionResult Index()
         {
             return View();
-
         }
         [HttpPost]
         public ActionResult Index(string Name, string password)
         {
-            var user = db.Admini.Where(u => u.Name == Name && u.Password == password).SingleOrDefault();
+            var adm = db.Admini.Where(u => u.Name == Name && u.Password == password).SingleOrDefault();
             //存在登录的用户信息储存在session中
-            if (user != null)
+            if (adm != null)
             {
                 //将Hashet储存，用户对应菜单信息，原因，hashet
-                Session["user"] = user;
+                Session["user"] = adm;
                 //定义hashest
-                HashSet<Admini> menusList = new HashSet<Admini>();
-                Session["menusList"] = menusList;
-                return RedirectToAction("Department", "Login");
+                return RedirectToAction("Sta", "Login");
             }
             else
             {
-                return Content("<script>alert('账号或密码错误！');location.go(-1)</script>");
+                return Content("<script>alert('账号或密码错误！');location.href='/Index/Login'</script>");
             }
 
         }
@@ -71,6 +87,8 @@ namespace Worry_freemanagement.Controllers
         public ActionResult Delsit(int id)
         {
             Departmental dep = db.Departmental.Find(id);
+            int sum = db.Stafftable.Where(p=>p.DepartmentID==id).Count();
+            ViewBag.sum = sum;
             return View(dep);
         }
         /// <summary>

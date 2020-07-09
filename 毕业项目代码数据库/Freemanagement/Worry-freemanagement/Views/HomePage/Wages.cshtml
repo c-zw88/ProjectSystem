@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Wages";
+    Layout = "~/Views/Shared/_LayoutPersonal.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model Stafftable
+@{
+    var cont = 1;
+    List<Wage> wages = ViewBag.wages as List<Wage>;
+    Stafftable sta = Session["user"] as Stafftable;
+}
+
+<h2>工资查询</h2>
+<form action="/HomePage/Wages" method="post">
+    <div>
+        <Label>查询：</Label>
+        <input type="date" name="Month" value="" />
+        <input type="submit" name="name" value="查询" />
+    </div>
+</form>
+<form action="/HomePage/Wages" method="post">
+    <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
+        <tr class="active">
+            <th style="text-align:center;">编号</th>
+            <th style="text-align:center;">员工工号</th>
+            <th style="text-align:center;">员工姓名</th>
+            <th style="text-align:center;">工资日期</th>
+            <th style="text-align:center;">总工资</th>
+            <th style="text-align:center;">查看详情</th>
+        </tr>
+        @foreach (var item in wages)
+        {
+            <tr class="warning">
+                <td>@(cont++)</td>
+                <td>@item.EmployeeID</td>
+                <td>@item.Name</td>
+                <td>@item.Month</td>
+                <td>@(item.Real=item.Basicwage+item.Gongz+item.Overtime+item.Insurance)</td>
+                @*<td>@item.Real</td>*@
+                <td>
+                    <a href="/Wages/selelct?id=@item.ID" class="btn btn-default btn-primary">查看详情</a>
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+
