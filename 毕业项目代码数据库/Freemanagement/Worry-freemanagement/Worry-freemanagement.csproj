@@ -739,6 +739,8 @@
     <Content Include="Views\HomePage\Wages.cshtml" />
     <Content Include="Views\HomePage\Punate.cshtml" />
     <Content Include="Views\HomePage\Clockins.cshtml" />
+    <Content Include="Views\HomePage\WageSelelct.cshtml" />
+    <Content Include="Views\HomePage\PunateSelelct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

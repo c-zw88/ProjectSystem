@@ -8,6 +8,7 @@
 @{
     var cont = 1;
     Stafftable sta = Session["user"] as Stafftable;
+    List<punishments> pun = ViewBag.pun as List<punishments>;
 }
 <h2>奖罚查询</h2>
 <form action="/HomePage/Punate" method="post">
@@ -17,7 +18,7 @@
         <input type="submit" name="name" value="查询" />    
     </div>
 </form>
-<form action="//HomePage/Punate" method="post">
+<form action="/HomePage/Punate" method="post">
     <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
         <tr class="active">
             <th style="text-align:center;">编号</th>
@@ -28,7 +29,7 @@
             <th style="text-align:center;">奖励内容</th>
             <th style="text-align:center;">操作</th>
         </tr>
-        @foreach (var item in sta.punishments)
+        @foreach (var item in pun)
         {
             <tr class="warning">
                 <td>@(cont++)</td>
@@ -38,7 +39,7 @@
                 <td>@item.Datatime</td>
                 <td>@item.Amount</td>
                 <td>
-                    <a href="/Wages/selelct?id=@item.EmployeeID" class="btn btn-default btn-primary">查看详情</a>
+                    <a href="/HomePage/PunateSelelct?id=@item.EventsID" class="btn btn-default btn-primary">查看详情</a>
                 </td>
             </tr>
         }

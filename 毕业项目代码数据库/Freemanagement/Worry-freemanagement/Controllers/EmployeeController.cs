@@ -59,11 +59,11 @@ namespace Worry_freemanagement.Controllers
             {
                 Session["user"] = sta;
                 //定义hashest
-                return RedirectToAction("Personal", "HomePage");
+                return RedirectToAction("Personal","HomePage");
             }
             else
             {
-                return Content("<script>alert('账号或密码错误！');location.go(-1)</script>");
+                return Content("<script>alert('账号密码错误！');history.go(-1)</script>");
             }
         }
         /// <summary>

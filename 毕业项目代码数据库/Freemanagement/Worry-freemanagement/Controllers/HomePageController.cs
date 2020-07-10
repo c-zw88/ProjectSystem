@@ -84,6 +84,10 @@ namespace Worry_freemanagement.Controllers
             Session["user"] = sta1;
             return RedirectToAction("Personalce", "HomePage");
         }
+        /// <summary>
+        /// 查看员工搞工资表
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Wages()
         {
             Stafftable user = Session["user"] as Stafftable;
@@ -91,14 +95,39 @@ namespace Worry_freemanagement.Controllers
             ViewBag.wages = Wage;
             return View();
         }
-        //[HttpPost]
-        //public ActionResult Wages()
-        //{
-        //    Wage wag = new Wage();
-        //    return View();
-        //}
+        /// <summary>
+        /// 员工查看工资详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult WageSelelct(int id)
+        {
+            Stafftable user = Session["user"] as Stafftable;
+            var wage = db.Wage.Find(id);
+            ViewBag.weg = wage;
+            return View();
+        }
+        /// <summary>
+        /// 员工查看自己奖罚信息
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Punate()
         {
+            Stafftable user = Session["user"] as Stafftable;
+            List<punishments> pun = db.punishments.Where(p => p.EmployeeID == user.EmployeeID).ToList();
+            ViewBag.pun = pun;
+            return View();
+        }
+        /// <summary>
+        /// 员工查看详细的奖罚信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult PunateSelelct(int id)
+        {
+            Stafftable user = Session["user"] as Stafftable;
+            var punishments = db.punishments.Find(id);
+            ViewBag.punishments = punishments;
             return View();
         }
         /// <summary>

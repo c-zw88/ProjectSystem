@@ -52,7 +52,7 @@ namespace Worry_freemanagement.Controllers
             }
             else
             {
-                return Content("<script>alert('账号或密码错误！');location.href='/Index/Login'</script>");
+                return Content("<script>alert('账号或密码错误！');history.go(-1)</script>");
             }
 
         }

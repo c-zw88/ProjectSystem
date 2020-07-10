@@ -46,7 +46,7 @@ namespace Worry_freemanagement.Controllers
             ViewBag.pageCount = pageCount;
             ViewBag.totalCount = totalCount;
             ViewBag.totalPage = totalPage;
-            var sta = db.Wage.Where(p=>p.EmployeeID== EmployeeID).ToList();
+            var sta = db.Wage.Where(p => p.EmployeeID == EmployeeID).ToList();
             ViewBag.see = sta;
             var stae = db.Stafftable.ToList();
             ViewBag.sta = stae;
@@ -72,12 +72,31 @@ namespace Worry_freemanagement.Controllers
             return View(ste);
         }
         [HttpPost]
-        public ActionResult AddWage(Wage wa,string Basicwage,string Gongz, string Overtime, string Insurance)
+        public ActionResult AddWage(Wage wa, string Basicwage, string Gongz, string Overtime, string Insurance)
         {
-            wa.Real =decimal.Parse(Basicwage) + decimal.Parse(Gongz) + decimal.Parse(Overtime) + decimal.Parse(Insurance);
-            db.Wage.Add(wa);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Wages");
+            Wage wag1 = db.Wage.OrderByDescending(p => p.ID).FirstOrDefault(p => p.EmployeeID == wa.EmployeeID);
+            if (wag1 == null)
+            {
+                wa.Real = decimal.Parse(Basicwage) + decimal.Parse(Gongz) + decimal.Parse(Overtime) + decimal.Parse(Insurance);
+                db.Wage.Add(wa);
+                db.SaveChanges(); return RedirectToAction("Index", "Wages");
+            }
+            else
+            {
+                string colTime = string.Format("{0:Y}", wa.Month);
+                string nawTime = string.Format("{0:Y}", wag1.Month);
+                if (colTime == nawTime)
+                {
+                    return Content("<script>alert('本月工资已成功发放！');history.go(-1)</script>");
+                }
+                else
+                {
+                    wa.Real = decimal.Parse(Basicwage) + decimal.Parse(Gongz) + decimal.Parse(Overtime) + decimal.Parse(Insurance);
+                    db.Wage.Add(wa);
+                    db.SaveChanges(); return RedirectToAction("Index", "Wages");
+
+                }
+            }
         }
     }
 }
