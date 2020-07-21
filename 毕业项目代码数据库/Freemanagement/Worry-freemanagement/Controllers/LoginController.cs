@@ -105,6 +105,7 @@ namespace Worry_freemanagement.Controllers
         public ActionResult Edit(Departmental dep)
         {
             db.Entry(dep).State = System.Data.Entity.EntityState.Modified;
+            db.Entry(dep).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Department", "Login");
         }

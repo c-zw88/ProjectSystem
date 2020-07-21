@@ -15,6 +15,7 @@
     <div class="form-inline col-lg-12" style="margin-top:30px;">
         <label style="font-size:18px;">员工姓名:</label>
         <select class="form-control" name="EmployeeID">
+            <option value="" name="">--请选择--</option>
             @foreach (var item in sat)
             {
                 <option value="@item.EmployeeID" name="EmployeeID">@item.Name</option>
