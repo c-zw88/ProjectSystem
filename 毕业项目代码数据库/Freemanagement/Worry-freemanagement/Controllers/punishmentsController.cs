@@ -37,6 +37,21 @@ namespace Worry_freemanagement.Controllers
             punishments pum = db.punishments.Find(id);
             return View(pum);
         }
+        //查看员工考情状况
+        public ActionResult Clioic(string Name = "", int pageIndex = 1, int pageCount = 4)
+        {
+            int totalCount = db.punishments.OrderBy(p => p.EventsID).Count();
+            //总页数
+            double totalPage = Math.Ceiling((double)totalCount / pageCount);
+            //获得用户集合 , 分页查询Skip（）跳过指定数量的集合 Take() 从过滤后返回的集合中再从第一行取出指定的行数
+            List<Clockin> clo = db.Clockin.OrderBy(p => p.Clockinid).ToList().Skip((pageIndex - 1) * pageCount).Take(pageCount).ToList();
+            ViewBag.pageIndex = pageIndex;
+            ViewBag.pageCount = pageCount;
+            ViewBag.totalCount = totalCount;
+            ViewBag.totalPage = totalPage;
+            ViewBag.Name = Name;
+            return View(clo);
+        }
         /// <summary>
         /// 添加员工奖罚信息
         /// </summary>

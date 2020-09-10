@@ -741,6 +741,7 @@
     <Content Include="Views\HomePage\Clockins.cshtml" />
     <Content Include="Views\HomePage\WageSelelct.cshtml" />
     <Content Include="Views\HomePage\PunateSelelct.cshtml" />
+    <Content Include="Views\punishments\Clioic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
