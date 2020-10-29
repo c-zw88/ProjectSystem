@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1825b3435f8a4c81a5a366e6ed5b848c" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="Model.Departmental" Width="1.5" PointX="8" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Recruitment" Width="1.5" PointX="2.875" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Stafftable" Width="1.5" PointX="2.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Trainingform" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Trainingform_Trainingform" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Recruitment_Departmental" />
+        <AssociationConnector Association="Model.FK_Stafftable_Departmental1" />
+        <EntityTypeShape EntityType="Model.Admini" Width="1.5" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.punishments" Width="1.5" PointX="5" PointY="1.375" />
+        <AssociationConnector Association="Model.FK_punishments_Stafftable" />
+        <EntityTypeShape EntityType="Model.notice" Width="1.5" PointX="0.625" PointY="5.625" />
+        <EntityTypeShape EntityType="Model.Wage" Width="1.5" PointX="5.625" PointY="5.375" />
+        <AssociationConnector Association="Model.FK_Wage_Stafftable" />
+        <EntityTypeShape EntityType="Model.Clockin" Width="1.5" PointX="0.625" PointY="8.25" />
+        <AssociationConnector Association="Model.FK_Clockin_Stafftable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

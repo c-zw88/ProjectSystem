@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+@using Worry_freemanagement.Models
+@{
+    Admini adm = Session["user"] as Admini;
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无忧管理系统</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/left-side-menu.css" rel="stylesheet" />
+    <link href="~/fonts/iconfont.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/scripts/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/left-side-menu.js"></script>
+</head>
+<body style="background-color:white; ">
+    @* 顶部导航条 *@
+    <div class="top" style="width:100%;height: 120px;background-color: #28b3f4">
+        <div class="top1 "style="">
+            <img src="~/image/图标.png" style="width:240px; height:100px; margin-top:10px; margin-left:30px;" />
+        </div>
+        <div style="margin-top:-60px;margin-left:1400px;font-size:24px;">
+            <span> @adm.UserNaem 欢迎使用无忧管理系统</span>
+            <a href="/Login/Index?@Session["teaMsg"]=null">退出系统</a>
+        </div>
+    </div>
+    @* 中间导航 *@
+    <div class="left-side-menu" style="position:relative;">
+        <div style="box-shadow:10px #f2f6ce;position:absolute;top:30px;left:300px;width:1480px;height:100%;">
+            @RenderBody()
+        </div>
+        <div class="lsm-container">
+            <div class="lsm-scroll">
+                <div class="lsm-sidebar">
+                    <ul>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>部门管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Login/Department "><span>部门信息</span></a></li>
+                                <li><a href="/Login/Add "><span>添加部门</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-touxiang"></i><span>员工管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Employee/Index"><span>员工信息</span></a></li>
+                                <li><a href="/Employee/Add"><span>添加员工</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-alarm"></i><span>招聘管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Recruitment/Index"><span>招聘信息</span></a></li>
+                                <li><a href="/Recruitment/Add"><span>添加招聘人</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-crmtubiaohuaban35fuben3773"></i><span>培训管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Training/Index"><span>培训列表</span></a></li>
+                                <li><a href="/Training/Add"><span>添加培训</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-chongzhi4"></i><span>工资管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+
+                            <ul>
+                                <li><a href="/Wages/Index"><span>工资详情</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-dunpai"></i><span>奖罚管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/punishments/Index"><span>奖罚详情</span></a></li>
+                                <li><a href="/punishments/Add"><span>奖罚添加</span></a></li>
+                                <li><a href="/punishments/Clioic"><span>考情管理</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-user"></i><span>公告</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/notice/select"><span>公告详情</span></a></li>
+                                <li><a href="/notice/Index"><span>添加公告</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon-tuichu"></i><span>系统设置</span><i class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Login/Amite"><span>管理员信息</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* 底部显示区域 *@
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+        </footer>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+

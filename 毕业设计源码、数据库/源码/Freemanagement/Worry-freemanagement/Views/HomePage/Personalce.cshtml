@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Personalce";
+    Layout = "~/Views/Shared/_LayoutPersonal.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model Stafftable
+@{
+    Stafftable sta = Session["user"] as Stafftable;
+}
+<h2>个人信息</h2>
+<div style="font-size:18px; line-height:40px; margin-top:60px;margin-left:300px;">
+    <div>
+        <Label>头&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 像：</Label>
+        <img src="~/image/@sta.Photos" style="width:50px;height:50px;border-radius:50px;" />
+    </div>
+    <div class="form-inline">
+        <Label>姓&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 名：</Label>
+        <text>@sta.Name</text>
+    </div>
+    <div class="form-inline">
+        <Label>性&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 别：</Label>
+        <text>@sta.Sex</text>
+    </div>
+    <div class="form-inline">
+        <Label>年&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 龄：</Label>
+        <text>@sta.Age</text>
+    </div>
+    <div class="form-inline">
+        <Label>电&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 话：</Label>
+        <text>@sta.Telephone</text>
+    </div>
+    <div class="form-inline">
+        <Label>户籍所在：</Label>
+        <text>@sta.Nativeplace</text>
+    </div>
+    <div class="form-inline">
+        <Label>部&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 门：</Label>
+        <text>@sta.Departmental.DepartmentName</text>
+        <input type="hidden" name="DepartmentID" value="@sta.Departmental.DepartmentID" />
+    </div>
+    <div class="form-inline">
+        <Label>入职日期：</Label>
+        <text>@sta.EntryTime</text>
+    </div>
+    <div class="form-inline">
+        <Label>职&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 位：</Label>
+        <text>@sta.Position</text>
+    </div>
+    <div class="form-inline">
+        <Label>学&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 历：</Label>
+        <text>@sta.Education</text>
+    </div>
+    <div class="form-inline">
+        <Label>账&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 号：</Label>
+        <text>@sta.UserName</text>
+    </div>
+    <div class="form-inline">
+        <Label>密&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 码：</Label>
+        <text>@sta.Password</text>
+    </div>
+    <input type="hidden" name="EmployeeID" value="@sta.EmployeeID" />
+    <div style="margin-top:-300px;margin-left:400px;font-size:24px;">
+    <a href="/HomePage/Personalcenter">编辑</a>
+</div>
+</div>

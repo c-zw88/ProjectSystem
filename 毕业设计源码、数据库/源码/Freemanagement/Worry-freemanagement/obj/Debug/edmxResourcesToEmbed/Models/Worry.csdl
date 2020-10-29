@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Departmental">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartmentNun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Introduction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Basic" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Stafftable" Relationship="Self.FK_Stafftable_Departmental" FromRole="Departmental" ToRole="Stafftable" />
+    <NavigationProperty Name="Recruitment" Relationship="Model.FK_Recruitment_Departmental" FromRole="Departmental" ToRole="Recruitment" />
+  </EntityType>
+  <EntityType Name="punishments">
+    <Key>
+      <PropertyRef Name="EventsID" />
+    </Key>
+    <Property Name="EventsID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Datatime" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Int32" />
+    <NavigationProperty Name="Stafftable" Relationship="Self.FK_punishments_Stafftable" FromRole="punishments" ToRole="Stafftable" />
+  </EntityType>
+  <EntityType Name="Recruitment">
+    <Key>
+      <PropertyRef Name="RecruitmentID" />
+    </Key>
+    <Property Name="RecruitmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Photos" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departmental" Relationship="Model.FK_Recruitment_Departmental" FromRole="Recruitment" ToRole="Departmental" />
+  </EntityType>
+  <EntityType Name="Stafftable">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Telephone" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DepartmentID" Type="Int32" />
+    <Property Name="EntryTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Photos" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nativeplace" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departmental" Relationship="Self.FK_Stafftable_Departmental" FromRole="Stafftable" ToRole="Departmental" />
+    <NavigationProperty Name="punishments" Relationship="Self.FK_punishments_Stafftable" FromRole="Stafftable" ToRole="punishments" />
+    <NavigationProperty Name="Wage" Relationship="Self.FK_Wage_Stafftable" FromRole="Stafftable" ToRole="Wage" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trainingform">
+    <Key>
+      <PropertyRef Name="TrainingID" />
+    </Key>
+    <Property Name="TrainingID" Type="Int32" Nullable="false" />
+    <Property Name="Nametraining" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Personnel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Datatime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Trainingform1" Relationship="Self.FK_Trainingform_Trainingform" FromRole="Trainingform" ToRole="Trainingform1" />
+    <NavigationProperty Name="Trainingform2" Relationship="Self.FK_Trainingform_Trainingform" FromRole="Trainingform1" ToRole="Trainingform" />
+  </EntityType>
+  <EntityType Name="Wage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Month" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Basicwage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Overtime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Gongz" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Absenteeism" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Insurance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="taxation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Real" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Stafftable" Relationship="Self.FK_Wage_Stafftable" FromRole="Wage" ToRole="Stafftable" />
+  </EntityType>
+  <Association Name="FK_Stafftable_Departmental">
+    <End Role="Departmental" Type="Self.Departmental" Multiplicity="0..1" />
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmental">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Stafftable">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_punishments_Stafftable">
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
+    <End Role="punishments" Type="Self.punishments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="punishments">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wage_Stafftable">
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
+    <End Role="Wage" Type="Self.Wage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Wage">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainingform_Trainingform">
+    <End Role="Trainingform" Type="Self.Trainingform" Multiplicity="1" />
+    <End Role="Trainingform1" Type="Self.Trainingform" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Trainingform">
+        <PropertyRef Name="TrainingID" />
+      </Principal>
+      <Dependent Role="Trainingform1">
+        <PropertyRef Name="TrainingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WorryEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departmental" EntityType="Self.Departmental" />
+    <EntitySet Name="punishments" EntityType="Self.punishments" />
+    <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
+    <EntitySet Name="Stafftable" EntityType="Self.Stafftable" />
+    <EntitySet Name="Trainingform" EntityType="Self.Trainingform" />
+    <EntitySet Name="Wage" EntityType="Self.Wage" />
+    <AssociationSet Name="FK_Stafftable_Departmental" Association="Self.FK_Stafftable_Departmental">
+      <End Role="Departmental" EntitySet="Departmental" />
+      <End Role="Stafftable" EntitySet="Stafftable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="punishments" EntitySet="punishments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wage_Stafftable" Association="Self.FK_Wage_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="Wage" EntitySet="Wage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainingform_Trainingform" Association="Self.FK_Trainingform_Trainingform">
+      <End Role="Trainingform" EntitySet="Trainingform" />
+      <End Role="Trainingform1" EntitySet="Trainingform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruitment_Departmental" Association="Model.FK_Recruitment_Departmental">
+      <End Role="Departmental" EntitySet="Departmental" />
+      <End Role="Recruitment" EntitySet="Recruitment" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Recruitment_Departmental">
+    <End Type="Model.Departmental" Role="Departmental" Multiplicity="1" />
+    <End Type="Model.Recruitment" Role="Recruitment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmental">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Recruitment">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

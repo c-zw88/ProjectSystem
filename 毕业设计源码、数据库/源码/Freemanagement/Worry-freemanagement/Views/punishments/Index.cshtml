@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model List<punishments>
+@{
+    var cont = 1;
+}
+
+<h2>员工奖罚列表</h2>
+<form action="/punishments/Index" method="post">
+    <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
+        <tr class="active">
+            <th style="text-align:center;">编号</th>
+            <th style="text-align:center;">员工编号</th>
+            <th style="text-align:center;">员工姓名</th>
+            <th style="text-align:center;">日期</th>
+            <th style="text-align:center;">事件</th>
+            <th style="text-align:center;">奖罚内容</th>
+            <th style="text-align:center;">操作</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="warning">
+                <td>@(cont++)</td>
+                <td>@item.EmployeeID</td>
+                <td>@item.Name</td>
+                <td>@item.Reason</td>
+                <td>@item.Datatime</td>
+                <td>@item.Amount</td>
+                <td>
+                    <a href="/punishments/Delsit?id=@item.EventsID" class="btn btn-default btn-primary">查看详情</a>
+                    @*<a href="/punishments/alter?id=@item.EventsID" class="btn btn-default btn-info">修改</a>*@
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+@*分页*@
+<div style="position:absolute;top:650px;height:auto;width:1200px;">
+    <div classs="row">
+        <div class="col-lg-8">
+            <label style="color:black;">总共 @ViewBag.totalCount 行</label>
+            <select onchange="window.location = this.value;">
+                @{
+                    int[] count = new[] { 2, 4, 5, 10, 15 };
+                }
+                @foreach (var item in count)
+                {
+                    if (item.Equals(ViewBag.pageCount))
+                    {
+                        <option value="/punishments/Index?pageIndex=@ViewBag.pageIndex&pageCount=@item" selected>@item</option>
+                    }
+                    else
+                    {
+                        <option value="/punishments/Index?pageIndex=@ViewBag.pageIndex&pageCount=@item">@item</option>
+                    }
+
+                }
+            </select>
+        </div>
+        <div class="col-lg-4" style="margin-top:-30px;">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="/punishments/Index?pageIndex=1&pageCount=@ViewBag.pageCount">首页</a>
+                    </li>
+                    @if (@ViewBag.pageIndex > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/punishments/Index?pageIndex=@(ViewBag.pageIndex-1)&pageCount=@ViewBag.pageCount">上一页</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">上一页</a>
+                        </li>
+                    }
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">@ViewBag.pageIndex</a>
+                    </li>
+
+                    @if (@ViewBag.pageIndex < @ViewBag.totalPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/punishments/Index?pageIndex=@(ViewBag.pageIndex+1)&pageCount=@ViewBag.pageCount">下一页</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">下一页</a>
+                        </li>
+                    }
+
+                    <li class="page-item"><a class="page-link" href="/punishments/Index?pageIndex=@ViewBag.totalPage&pageCount=@ViewBag.pageCount">末页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>@*分页尾*@
+

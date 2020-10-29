@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Delsit";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model Departmental
+
+<h2 >查看部门信息</h2>
+<br/>
+<br/>
+<form action="#" method="post" style="margin-left:30px;">
+    <table class="table table-bordered table-hover table-condensed table-striped">
+        <tr class="active">
+            <th><h4>部门名称：</h4></th>
+            <td><h4>@Model.DepartmentName</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>部门简介：</h4></th>
+            <td><h4>@Model.DepartmentNun</h4></td>
+        </tr>
+        <tr>
+            <th><h4>部门人数：</h4></th>
+            <td><h4>@Model.Introduction</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>部门总人数：</h4></th>
+            <td><h4>@ViewBag.sum </h4></td>
+        </tr>
+        <tr>
+            <th><h4>部门工资：</h4></th>
+            <td><h4>￥ @Model.Basic 元</h4></td>
+        </tr>
+    </table>
+    </br>
+    <a href="/Login/Department" class="btn btn-default btn-success">返回</a>
+</form>
+

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "PunateSelelct";
+    Layout = "~/Views/Shared/_LayoutPersonal.cshtml";
+}
+@using Worry_freemanagement.Models;
+@{ 
+    var pun = ViewBag.punishments;
+}
+<h2>奖罚详情</h2>
+<form action="/punishments/Delsit" method="post" style="margin-top:30px;">
+    <table class="table table-bordered table-hover table-condensed table-striped">
+        <tr class="active">
+            <th><h4>员工编号：</h4></th>
+            <td><h4>@pun.EmployeeID</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>员工姓名：</h4></th>
+            <td><h4>@pun.Name</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>奖罚原因：</h4></th>
+            <td><h4>@pun.Reason</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>奖罚时间：</h4></th>
+            <td><h4>@pun.Datatime</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>奖罚内容：</h4></th>
+            <td><h4>@pun.Amount</h4></td>
+        </tr>
+    </table>
+    <br/>
+    <a href="/HomePage/Punate" class="btn btn-default btn-success">返回</a>
+</form>
+

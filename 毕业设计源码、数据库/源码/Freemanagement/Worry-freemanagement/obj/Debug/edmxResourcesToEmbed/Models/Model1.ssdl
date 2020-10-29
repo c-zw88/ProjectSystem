@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admini">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="UserNaem" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Clockin">
+    <Key>
+      <PropertyRef Name="Clockinid" />
+    </Key>
+    <Property Name="Clockinid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" />
+    <Property Name="Gotowork" Type="datetime" />
+    <Property Name="Gooffwork" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Departmental">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentNun" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Introduction" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Basic" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="notice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datatime" Type="datetime" Nullable="false" />
+    <Property Name="photo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="punishments">
+    <Key>
+      <PropertyRef Name="EventsID" />
+    </Key>
+    <Property Name="EventsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Datatime" Type="datetime" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Recruitment">
+    <Key>
+      <PropertyRef Name="RecruitmentID" />
+    </Key>
+    <Property Name="RecruitmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="Age" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sex" Type="nchar" MaxLength="2" />
+    <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
+    <Property Name="Education" Type="nvarchar" MaxLength="5" />
+    <Property Name="Position" Type="nvarchar" MaxLength="10" />
+    <Property Name="Photos" Type="nchar" MaxLength="13" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="Introduction" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Stafftable">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sex" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Telephone" Type="nchar" MaxLength="13" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="EntryTime" Type="datetime" Nullable="false" />
+    <Property Name="Photos" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="10" />
+    <Property Name="Education" Type="nvarchar" MaxLength="5" />
+    <Property Name="UserName" Type="nchar" MaxLength="18" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="Nativeplace" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Trainingform">
+    <Key>
+      <PropertyRef Name="TrainingID" />
+    </Key>
+    <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nametraining" Type="nvarchar" MaxLength="50" />
+    <Property Name="Personnel" Type="nchar" MaxLength="10" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Datatime" Type="datetime" />
+    <Property Name="Datatimes" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Wage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="Month" Type="datetime" Nullable="false" />
+    <Property Name="Basicwage" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Overtime" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Gongz" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Insurance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Real" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Clockin_Stafftable">
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="0..1" />
+    <End Role="Clockin" Type="Self.Clockin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Clockin">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_punishments_Stafftable">
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
+    <End Role="punishments" Type="Self.punishments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="punishments">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainingform_Trainingform">
+    <End Role="Trainingform" Type="Self.Trainingform" Multiplicity="1" />
+    <End Role="Trainingform1" Type="Self.Trainingform" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Trainingform">
+        <PropertyRef Name="TrainingID" />
+      </Principal>
+      <Dependent Role="Trainingform1">
+        <PropertyRef Name="TrainingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wage_Stafftable">
+    <End Role="Stafftable" Type="Self.Stafftable" Multiplicity="1" />
+    <End Role="Wage" Type="Self.Wage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stafftable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Wage">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Admini" EntityType="Self.Admini" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clockin" EntityType="Self.Clockin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departmental" EntityType="Self.Departmental" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notice" EntityType="Self.notice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="punishments" EntityType="Self.punishments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recruitment" EntityType="Self.Recruitment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stafftable" EntityType="Self.Stafftable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trainingform" EntityType="Self.Trainingform" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wage" EntityType="Self.Wage" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Clockin_Stafftable" Association="Self.FK_Clockin_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="Clockin" EntitySet="Clockin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_punishments_Stafftable" Association="Self.FK_punishments_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="punishments" EntitySet="punishments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainingform_Trainingform" Association="Self.FK_Trainingform_Trainingform">
+      <End Role="Trainingform" EntitySet="Trainingform" />
+      <End Role="Trainingform1" EntitySet="Trainingform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wage_Stafftable" Association="Self.FK_Wage_Stafftable">
+      <End Role="Stafftable" EntitySet="Stafftable" />
+      <End Role="Wage" EntitySet="Wage" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

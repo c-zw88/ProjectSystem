@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "select";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@using Worry_freemanagement.Models;
+@model List<notice>
+@{
+    var count = 1;
+}
+<script src="~/statics/js/masonry_4.min.js"></script>
+<script src="~/statics/js/m_org.min.js"></script>
+<script src="~/statics/js/org.min.js"></script>
+<script src="~/statics/js/wow.min.js"></script>
+<script src="~/statics/js/zepto.bxslider.min.js"></script>
+<script src="~/statics/js/zepto.min.js"></script>
+
+<body>
+    <form action="/HomePage/select" method="post">
+        <div class="bodyMask"> </div>
+        <div id="sitecontent">
+            <div id="newsPage" class="npagePage Pagenews">
+                <div id="banner">
+                    <div style="  background-image: url('../../statics/images/1481880194517.jpg')"></div>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <p class="title">最新动态</p>
+                        <p class="subtitle">News Center</p>
+                    </div>
+                    <div id="category">
+                        <a href="#" class="active">全部</a>
+                        <a href="#">公司动态</a>
+                        <a href="#">行业新闻</a>
+                    </div>
+                    <div id="newslist">
+                        <div class="wrapper">
+                            @foreach (var item in Model)
+                            {
+                                <div id="newsitem_0" class="wow newstitem left">
+                                    <a class="newscontent" target="_blank" href="/HomePage/Content?id=@item.id">
+                                        <div class="news_wrapper">
+                                            <div class="newsbody">
+                                                <p class="date"><span class="year" style="font-size:18px;">@string.Format("{0:yyyy-MM-dd}", item.datatime)</span></p>
+                                                <p class="title">@item.name</p>
+                                                <div class="separator"></div>
+                                                <p class="description"></p>
+                                            </div>
+                                        </div>
+                                        <div class="newsimg" style=" background-image: url('../../image/@item.photo')"></div>
+                                    </a>
+                                    <a href="/HomePage/Content?id=@item.id" class="details">more<i class="fa fa-angle-right"></i></a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+

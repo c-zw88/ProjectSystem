@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Amite";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models
+@{
+    Admini adm = Session["user"] as Admini;
+}
+<h2>管理员信息</h2>
+<form action="/Login/Amite" method="post">
+    <div style="margin-left:30px;margin-top:50px;">
+        <div class="form-inline">
+            <label style="font-size:18px;">姓名：</label>
+            <input type="text" name="UserNaem" value="@adm.UserNaem" class="form-control" />
+        </div>
+        <br />
+        <div class="form-inline">
+            <label style="font-size:18px;">账号：</label>
+            <input type="text" name="Name" value="@adm.Name" class="form-control" />
+        </div>
+        <br />
+        <div class="form-inline">
+            <label style="font-size:18px;">密码：</label>
+            <input type="text" name="Password" value="@adm.Password" class="form-control" />
+        </div>
+        <input type="hidden" name="Id" value="@adm.Id" />
+        <input type="submit" name="name" value="修改" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Delsit";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+<h2>详情信息</h2>
+<form action="/punishments/Delsit" method="post">
+    <table class="table table-bordered table-hover table-condensed table-striped">
+        <tr class="active">
+            <th><h4>员工编号：</h4></th>
+            <td><h4>@Model.EmployeeID</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>员工姓名：</h4></th>
+            <td><h4>@Model.Name</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>奖罚原因：</h4></th>
+            <td><h4>@Model.Reason</h4></td>
+        </tr>
+        <tr class="active">
+            <th><h4>奖罚时间：</h4></th>
+            <td><h4>@Model.Datatime</h4></td>
+        </tr>
+        <tr class="warning">
+            <th><h4>奖罚内容：</h4></th>
+            <td><h4>@Model.Amount</h4></td>
+        </tr>
+    </table>
+    </br>
+    <a href="/punishments/Index" class="btn btn-default btn-success">返回</a>
+</form>
+

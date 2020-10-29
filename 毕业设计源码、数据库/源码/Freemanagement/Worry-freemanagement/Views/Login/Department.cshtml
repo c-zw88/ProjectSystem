@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/_LayoutFreemana.cshtml";
+}
+@using Worry_freemanagement.Models;
+@model List<Departmental>
+@{
+    var code = 1;
+}
+<n />
+<h2>部门管理</h2>
+<br />
+<form action="/Login/Department" method="get">
+    <br />
+    <div class="form-inline col-lg-9"></div>
+    <div class="form-inline col-lg-3">
+        <label>查询员工：</label>
+        <input type="text" name="Name" class="form-control" value="@ViewBag.Name" />
+        <input type="submit" name="Name" value="查询" class="btn btn-default btn-success" />
+    </div>
+    <br />
+</form>
+<form action="/Login/Department" method="post" class="form-horizontal">
+
+
+    <table class="table table-bordered table-hover table-condensed table-striped" style="text-align:center;">
+        <tr class="active">
+            <th style="text-align:center;">部门编号</th>
+            <th style="text-align:center;">部门名称</th>
+            <th style="text-align:center;">部门简介</th>
+            <th style="text-align:center;">人数</th>
+            <th style="text-align:center;">操作</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="warning">
+                <td>@(code++)</td>
+                <td>@item.DepartmentName</td>
+                <td>@item.DepartmentNun</td>
+                <td>@item.Introduction</td>
+                <td>
+                    <a href="~/Login/Delsit?id=@item.DepartmentID" class="btn btn-default btn-primary">查看详情</a>
+                    <a href="~/Login/Edit?id=@item.DepartmentID" class="btn btn-default btn-info">修改信息</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</form>
+
+@*分页*@
+<div style="position:absolute;top:600px;height:auto;width:1100px;">
+    <div classs="row">
+        <div class="col-lg-8">
+            <label style="color:black;">总共 @ViewBag.totalCount 行</label>
+            <select onchange="window.location = this.value;">
+                @{
+                    int[] count = new[] { 2, 4, 5, 10, 15 };
+                }
+                @foreach (var item in count)
+                {
+                    if (item.Equals(ViewBag.pageCount))
+                    {
+                        <option value="/Login/Department?pageIndex=@ViewBag.pageIndex&pageCount=@item" selected>@item</option>
+                    }
+                    else
+                    {
+                        <option value="/Login/Department?pageIndex=@ViewBag.pageIndex&pageCount=@item">@item</option>
+                    }
+
+                }
+            </select>
+        </div>
+        <div class="col-lg-4" style="margin-top:-30px;">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="/Login/Department?pageIndex=1&pageCount=@ViewBag.pageCount">首页</a>
+                    </li>
+
+                    @if (@ViewBag.pageIndex > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Login/Department?pageIndex=@(ViewBag.pageIndex-1)&pageCount=@ViewBag.pageCount">上一页</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">上一页</a>
+                        </li>
+                    }
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">@ViewBag.pageIndex</a>
+                    </li>
+
+                    @if (@ViewBag.pageIndex < @ViewBag.totalPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Login/Department?pageIndex=@(ViewBag.pageIndex+1)&pageCount=@ViewBag.pageCount">下一页</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">下一页</a>
+                        </li>
+                    }
+
+                    <li class="page-item"><a class="page-link" href="/Login/Departments?pageIndex=@ViewBag.totalPage&pageCount=@ViewBag.pageCount">末页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>@*分页尾*@
+

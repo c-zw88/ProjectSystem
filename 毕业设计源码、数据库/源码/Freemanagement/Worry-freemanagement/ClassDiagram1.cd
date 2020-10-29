@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Worry_freemanagement.BundleConfig" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.FilterConfig" Collapsed="true">
+    <Position X="5.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.RouteConfig" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.MvcApplication" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.EmployeeController">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEQAAIAAAA=</HashCode>
+      <FileName>Controllers\EmployeeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.HomeController" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.HomePageController" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAkAQAEIBAAAAAAAAAAAQBABAAAEAAAAAQAA=</HashCode>
+      <FileName>Controllers\HomePageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.LoginController" Collapsed="true">
+    <Position X="14.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAAAAAAMAAAgAACAAEAAAIAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.noticeController" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAAAAAAAAEAAABAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\noticeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.punishmentsController" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAwAAAAAAAAAAAAAAAAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Controllers\punishmentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.RecruitmentController" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Controllers\RecruitmentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.TrainingController" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Controllers\TrainingController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Controllers.WagesController" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAEAAAAAAAAAAEAAAAAACA=</HashCode>
+      <FileName>Controllers\WagesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Entities1" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAwAAEAAAiAAAIAAAAABIAAA=</HashCode>
+      <FileName>Models\Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Admini" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Admini.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Clockin" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgIAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Clockin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Departmental">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAIQAAAACUAAA=</HashCode>
+      <FileName>Models\Departmental.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.notice" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIgAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\notice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.punishments" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAAAAAAAAAIAAAQAAASAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\punishments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Recruitment" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAhKAgAEAAAgQAAAAAAAAAAAAgIAAEAAE=</HashCode>
+      <FileName>Models\Recruitment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Stafftable">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAhCAgAEAAAgQAAAAADAACAYAgAABAAAE=</HashCode>
+      <FileName>Models\Stafftable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Trainingform" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgAAAAAAAAIAAAYAAAAAAAAAAAASAAAAAAABAAA=</HashCode>
+      <FileName>Models\Trainingform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worry_freemanagement.Models.Wage">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAICAAAAAAAAgAAAgAAAACQIAAAAAAAEAgAAAAAAAAA=</HashCode>
+      <FileName>Models\Wage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
